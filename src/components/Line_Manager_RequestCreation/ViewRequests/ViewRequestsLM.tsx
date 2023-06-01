@@ -9,6 +9,7 @@ import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import style from './ViewRequestsLM.module.scss';
 import AddIcon from '@mui/icons-material/Add';
+import { useEffect, useRef, useState } from 'react';
 
 const steps = [
   {
@@ -27,6 +28,22 @@ const steps = [
 ];
 
 export default function VerticalLinearStepper() {
+
+  useEffect(() => { 
+    // const handleScroll = (event: any) => 
+    // { 
+    //   debugger;
+    //   setScrollTop(window.scrollY); }; 
+     window.addEventListener('scroll', handleScroll); 
+
+
+ // return () => { window.removeEventListener('scroll', handleScroll); 
+
+
+
+}, [handleScroll]);
+
+
   const [activeStep, setActiveStep] = React.useState(0);
 
   const handleNext = () => {
@@ -41,6 +58,56 @@ export default function VerticalLinearStepper() {
     setActiveStep(0);
   };
 
+  const [scrollTop, setScrollTop] = useState(0);
+
+  
+
+  // const stepperContainerRef = useRef(null);
+
+  // const handleNext = () => {
+  //   setActiveStep((prevActiveStep) => prevActiveStep + 1);
+  //   scrollToNextStep();
+  // };
+
+  // const scrollToNextStep = () => {
+  //   const nextButton = document.querySelector('.next-button');
+  //   const stepperContainer = stepperContainerRef.current;
+
+  //   if (stepperContainer) {
+  //     stepperContainer.scrollTop += stepperContainer.offsetHeight;
+  //   }
+
+  //   if (nextButton) {
+  //     nextButton.click();
+  //   }
+  // };
+
+  const nextButton = document.getElementById('stepperbutton');
+
+  // Get the container element that holds the vertical stepper
+  const stepperContainer = document.querySelector<HTMLElement>('.MuiStepper-vertical');
+  
+  // Function to scroll to the next step
+  function scrollToNextStep() {
+  // Scroll the container to the next step
+  debugger;
+  if(stepperContainer){
+  stepperContainer.scrollTop += stepperContainer.offsetHeight;
+  }
+  if(nextButton){
+  // Optionally, you can also trigger a click event on the next button
+  //nextButton.click();
+  }
+  }
+  
+  // Call the function to scroll to the next step whenever needed
+  
+
+  function handleScroll(){
+    debugger
+    scrollToNextStep();
+
+  }
   return (
     <section className={style.gridContainer}>
       <div className={style.gridHeader}>
@@ -52,38 +119,45 @@ export default function VerticalLinearStepper() {
       <div/>
       <Box className={style.stepperBox}>
     <div className={style.stepperContainer} style={{ overflowY: 'auto', maxHeight: '500px' }}>
-      <Stepper activeStep={activeStep} orientation="vertical" className={style.stepperBox}>
+    <Stepper activeStep={activeStep} orientation="vertical" className={style.stepperBox}>
         {steps.map((step, index) => (
-          <Step key={step.label}>
-            <Box className={style.grayBackground}>
-              <StepLabel
-                className={style.stepLabel}
-                classes={{ label: style.stepLabelText }}
-              >
-                <Typography className={style.stepTitle}>
-                  {step.label}
-                </Typography>
-              </StepLabel>
+          <Step key={step.label} expanded>
+             <Box className={style.grayBackground}>
+            <StepLabel
+            className={style.stepLabel}
+            classes={{ label: style.stepLabelText }}
+             
+            >
+              {step.label}
+            </StepLabel>
             </Box>
             <StepContent>
               <Typography className={style.stepTitle}>{step.description}</Typography>
-              <Box sx={{ mb: 2 }}>
-                <div>
-                  <Button
-                    variant="contained"
-                    onClick={handleNext}
-                    sx={{ mt: 1, mr: 1 }}
-                  >
-                    {index === steps.length - 1 ? 'Finish' : 'Continue'}
-                  </Button>
-                </div>
-              </Box>
+            <Box sx={{ mb: 2 }}>
+              <div>
+                
+              </div>
+            </Box>
             </StepContent>
           </Step>
         ))}
       </Stepper>
     </div>
   </Box>
+
+
+  <Button
+                className='next-button'
+                id="stepperbutton"
+                  variant="contained"
+                  onClick={handleNext}
+                  sx={{ mt: 1, mr: 1 }}
+                >
+                  "{"click"}
+                </Button>
+
+
+
     </section>
   );
 }

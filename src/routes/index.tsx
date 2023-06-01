@@ -4,6 +4,7 @@ import { APP_ROUTES } from '../utilities/constants'
 import { LmDashboard, Login, RequestCreation} from '../pages'
 import LMRequestCreation from "../pages/LMRequestCreation/LMRequestCreation"
 import NewRequest from "../pages/TrasportRequest/NewRequest"
+import VehicleRequest from '../pages/TMVehicle/VehicleRequest'
 
 const AppRoutes = () => {
   return (
@@ -39,6 +40,13 @@ const AppRoutes = () => {
           element={<NewRequest/>}
         >
         </Route>
+
+        <Route
+          path={APP_ROUTES.TM_VEHICLE_MANAGEMENT}
+          element={<VehicleRequest/>}
+        >
+        </Route>
+
 
       </Routes>
     </BrowserRouter>

@@ -70,6 +70,21 @@ const AppLayout: React.FC<{
                  </div>
                </NavLink>
            </aside>
+
+           <aside className={'links'}>
+            <NavLink
+               style={{ textDecoration: 'none' }}
+               className={({ isActive }) => (isActive ? 'layout-row is-active' : 'layout-row')}
+               to={APP_ROUTES.TM_VEHICLE_MANAGEMENT}
+             >
+               <div
+                 className={`navBarContent navLink layout-row`}
+               >
+                 <span>TM Vehicle Alocation</span>
+               </div>
+             </NavLink>
+         </aside>
+
           </aside>
           
         </aside>
