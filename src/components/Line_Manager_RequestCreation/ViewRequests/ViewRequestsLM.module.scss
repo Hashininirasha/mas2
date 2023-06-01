@@ -1,0 +1,83 @@
+@import "../../../assets/theme/constants.scss";
+
+.gridContainer {
+    margin: 45px;
+    border-radius: 5px;
+    background-color: $bgColorSidebar;
+    padding-bottom: 40px;
+
+    .gridHeader {
+        display: flex;
+        padding: 20px;
+        align-items: center;
+
+        .gridTitle {
+            color: $white;
+        }
+
+        
+    }
+
+    .grid::-webkit-scrollbar-track {
+        background-color: $bgColorSidebar !important;
+    }
+    .grid::-webkit-scrollbar-thumb {
+        background-color: rgb(146, 146, 146) !important;
+    }
+}
+   
+
+
+.paginationReq {
+    background-color: $bgColorSidebar !important;
+    color: $white !important;
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 1 !important;
+    width: 100% !important;
+  }
+  .stepperBox{
+    color: $white !important;
+    padding-top: 5px;
+    background-color: $bgColorSidebar !important;
+    overflow: auto;
+    max-width:max-content !important;
+    max-height: fit-content !important;
+}
+.grayBackground {
+    background-color: $bgColor !important; /* Replace with your desired gray color */
+    width: auto;
+    height: 40;
+    padding: 5px;
+
+    .textcolor {
+        color: white; /* Replace with your desired text color */
+       
+      }
+      
+  }
+
+  .stepperBox {
+    /* Add your styles for the Stepper container */
+  }
+  
+  .grayBackground {
+    background-color: gray;
+  }
+  
+  .stepLabel {
+    /* Add your styles for the StepLabel */
+  }
+  
+  .stepLabelText {
+    color: white;
+  }
+  
+  .stepTitle {
+    /* Add your styles for the step title (h1) */
+   color: $white;
+   padding-left: 20px;
+  }
+  
+
+  

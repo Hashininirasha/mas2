@@ -1,0 +1,131 @@
+@import "../../assets/theme/constants.scss";
+
+.viewSummery {
+    margin: 45px;
+
+    .viewSummeryCard {
+        background-color: black;
+
+        .viewSummeryCardDataRow {
+            display: flex;
+            align-items: center;
+
+            .data {
+                font-weight: 400;
+                font-size: 18px;
+                color: $white;
+            }
+
+            .pending {
+                color: $white;
+                font-size: 12px;
+            }
+            .approve {
+                color: $success;
+                font-size: 12px;
+            }
+            .reject {
+                color: $danger;
+                font-size: 12px;
+            }
+
+            .action {
+                background-color: #121212;
+                padding: 5px 10px;
+                display: flex;
+                align-items: center;
+
+                .text {
+                    font-size: 10px;
+                    text-transform: none;
+                    color: #bfbfbf;
+                }
+
+                .icon {
+                    font-size: 15px;
+                }
+            }
+        }
+    }
+}
+
+.gridContainer {
+    margin: 45px;
+    border-radius: 5px;
+    background-color: $bgColorSidebar;
+    padding-bottom: 50px;
+
+    .gridHeader {
+        display: flex;
+        padding: 10px;
+        padding-left: 30px;
+        align-items: center;
+
+        .gridTitle {
+            color: $white;
+        }
+    }
+}
+   
+
+
+.gridContainer {
+    // Add row spacing
+    margin-bottom: 6px; // Adjust the desired spacing
+    
+    .gridRow {
+      // Add row padding
+      padding: 30px; // Adjust the desired padding
+      
+      &:not(:last-child) {
+        // Add row spacing
+        margin-bottom: 1px; // Adjust the desired spacing
+      }
+    }
+  }
+
+  .btntemp2 {
+    background-color: red !important;
+    color: white !important;
+    font-weight: normal;
+    text-align: left;
+    text-transform: none !important;
+
+     @media (max-width: 600px) {
+      margin-right: 0 !important;
+      margin-bottom: 10px !important;
+    }
+  }
+  
+  .btn {
+    padding-left: 180px;
+    padding-bottom: 10px;
+    display: flex;
+    align-items: center;
+  
+
+  }
+  
+  .btntemp1 {
+    background-color: black !important;
+    color: white !important;
+    font-weight: normal;
+    text-align: left;
+    border: 1px solid white !important;
+    margin-right: 10px !important;
+    text-transform: none !important;
+  
+    @media (max-width: 600px) {
+      margin-right: 0 !important;
+      margin-bottom: 10px !important;
+    }
+  }
+  
+  .viewSummeryCard {
+    background-color: black;
+    overflow: auto !important;
+    max-height: 300px !important; 
+  
+   
+  }
+  

@@ -1,0 +1,38 @@
+@import "../../assets//theme//constants.scss";
+
+
+.tableColor {
+  min-width: 280px;
+  background-color: #fff;
+
+  .gridTitle {
+    color: #fff;
+  }
+    .icon {
+    margin-left: 10px;
+    color: $gray;
+}
+
+
+  .text {
+  color: #fff;
+  font-weight: normal;
+  text-align: left;
+
+  flex: 1;
+}
+
+
+}
+
+.tablecell{
+    color: $white !important;
+   
+}
+
+.arrow{
+    background-color:$gray;
+    color: #fff;
+    margin-right: 8px
+
+}

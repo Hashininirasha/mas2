@@ -1,0 +1,57 @@
+@import "../../assets/theme/constants.scss";
+
+.cardContainer {
+  display: flex;
+  flex-wrap: wrap;
+  
+  @media (max-width: 900px) {
+    flex-direction: column;
+  }
+}
+
+.gridcontainerTemp {
+  background-color: $secondary !important;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.gridTitle {
+  color: $white;
+}
+
+.btntemp2 {
+  background-color: red !important;
+  color: white !important;
+  font-weight: normal;
+  text-align: left;
+  text-transform: none !important;
+}
+
+.btn {
+  padding-left: 200px;
+  padding-bottom: 10px;
+  display: flex;
+  align-items: center;
+
+  @media (max-width: 800px) {
+    padding-left: 0;
+    justify-content: space-between;
+  }
+}
+
+.btntemp1 {
+  background-color: black !important;
+  color: white !important;
+  font-weight: normal;
+  text-align: left;
+  border: 1px solid white !important;
+  margin-right: 10px !important;
+  text-transform: none !important;
+
+  @media (max-width: 600px) {
+    margin-right: 0 !important;
+    margin-bottom: 10px !important;
+  }
+}
+
+
