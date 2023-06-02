@@ -1,4 +1,4 @@
-import { Box, Button, FormControl, InputLabel, MenuItem, Select, TextField, Typography } from '@mui/material'
+import { Box, Button, FormControl, Grid, IconButton, InputLabel, MenuItem, Popover, Select, TextField, Typography } from '@mui/material'
 import React, { useState } from 'react'
 import style from './TMVehicle.module.scss'
 import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDownOutlined';
@@ -6,6 +6,10 @@ import { Alert, AlertTitle } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { APP_ROUTES } from '../../utilities/constants/routes.constants';
 import { DataGrid, GridColDef, GridValueGetterParams } from '@mui/x-data-grid';
+import CalendarMonthRoundedIcon from '@mui/icons-material/CalendarMonthRounded';
+import LocalizationProvider from '@mui/lab/LocalizationProvider/LocalizationProvider';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { DateCalendar } from '@mui/x-date-pickers/DateCalendar';
 
 
 const TMVehicle = () => {
@@ -31,11 +35,25 @@ const TMVehicle = () => {
   };
   const navigate = useNavigate()
 
+  const [anchorEl, setAnchorEl] = useState(null);
+
+  const handleClick = (event: any) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const open = Boolean(anchorEl);
+  const id = open ? 'calendar-popover' : undefined;
+
   const handleNewRequest = () => {
 
     navigate(APP_ROUTES.TM_VEHICLE_MANAGEMENT)
   }
 
+  
   return (
     <div>
       <section className={style.gridContainer}>
@@ -75,8 +93,13 @@ const TMVehicle = () => {
       autoComplete="off"
     >
       <div>
-     <FormControl 
->
+
+      <Grid container spacing={2}justifyContent="flex-end">
+  <Grid item xs={12} sm={6}>
+
+
+      <h4 className={style.headingtitle}>Company Name</h4>
+     <FormControl className={style.titletextboxdropdown}>
         <Select
           labelId="option1-label"
           id="option1"
@@ -90,65 +113,85 @@ const TMVehicle = () => {
         </Select>
       </FormControl>
 
-     <TextField
-  id="outlined-basic"
-  variant="outlined"
-  InputProps={{
-    classes: {
-      focused: style.focusedInput,
-      notchedOutline: style.whiteOutline,
-      input: style.whitePlaceholder
-    },
-    placeholder: "Enter Incident"
-  }}
-/>
-  
+      </Grid>
+  <Grid item xs={12} sm={6}>
+
+      <h4 className={style.headingtitlevehi}>Vehicle Number</h4>
+          <TextField
+        id="outlined-basic"
+        className={style.titletextboxVehi}
+        InputProps={{
+          classes: {
+            focused: style.focusedInput,
+            notchedOutline: style.whiteOutline,
+            input: style.whitePlaceholder
+          },
+          placeholder: "Enter Incident"
+          
+        }}
+      />
+</Grid>
+</Grid>
+
     </div>
 
+{/* Second end*/}
 
-
+    
       <div>
-      <FormControl>
-        <Select
-          labelId="option1-label"
-          id="option1"
-          value={selectedOption2}
-          onChange={handleChangeOption2}
-          className={style.titletextbox}
-  
-        >
-          <MenuItem value="option1Value1">Option 1 Value 1</MenuItem>
-          <MenuItem value="option1Value2">Option 1 Value 2</MenuItem>
-          <MenuItem value="option1Value3">Option 1 Value 3</MenuItem>
-        </Select>
-      </FormControl>
-      <FormControl>
-        <Select
-          labelId="option1-label"
-          id="option1"
-          value={selectedOption3}
-          onChange={handleChangeOption3}
-          className={style.titletextbox}
-  
-        >
-          <MenuItem value="option1Value1">Option 1 Value 1</MenuItem>
-          <MenuItem value="option1Value2">Option 1 Value 2</MenuItem>
-          <MenuItem value="option1Value3">Option 1 Value 3</MenuItem>
-        </Select>
-      </FormControl>
-      
+
+<Grid container spacing={2}justifyContent="flex-end">
+<Grid item xs={12} sm={6}>
+
+
+<h4 className={style.headingtitle}>Vehicle Type</h4>
+<FormControl className={style.titletextboxdropdown}>
+  <Select
+    labelId="option1-label"
+    id="option1"
+    value={selectedOption2}
+    onChange={handleChangeOption2}
+    className={style.titletextbox}
+  >
+    <MenuItem  value="option1Value1">Option 1 Value 1</MenuItem>
+    <MenuItem value="option1Value2">Option 1 Value 2</MenuItem>
+    <MenuItem value="option1Value3">Option 1 Value 3</MenuItem>
+  </Select>
+</FormControl>
+      </Grid>
+      <Grid item xs={12} sm={6}>
+      <h4 className={style.headingtitle}>Plant</h4>
+      <FormControl className={style.titletextboxdropdown}>
+  <Select
+    labelId="option1-label"
+    id="option1"
+    value={selectedOption3}
+    onChange={handleChangeOption3}
+    className={style.titletextboxdropdown}
+  >
+    <MenuItem  value="option1Value1">Option 1 Value 1</MenuItem>
+    <MenuItem value="option1Value2">Option 1 Value 2</MenuItem>
+    <MenuItem value="option1Value3">Option 1 Value 3</MenuItem>
+  </Select>
+</FormControl>
+      </Grid>
+      </Grid>
       </div>
-
+        
+{/* Third end*/}
 
 
       <div>
+        
       <div className={style.gridHeader}>
-       <h3>Indicates</h3>
+       <h3 >Indicates</h3>
        <br></br>
        
       </div>
       
+      <h4 className={style.headingtitle}> Incident</h4>
       <TextField
+      
           id="incident"
      
           placeholder="Enter Incident"
@@ -164,55 +207,84 @@ const TMVehicle = () => {
         />
 
       </div>
-      <div>
+
+{/* Fouth  */}
+<div>
+  <Grid container spacing={2} justifyContent="flex-end">
+    <Grid item xs={12} sm={6}>
+      <h4 className={style.headingtitle}>Date</h4>
+
       <TextField
-          id="filled-textarea"
-         
-          placeholder="Placeholder"
-          multiline
-          className={style.titletextbox}
-          InputProps={{
-            classes: {
-              focused: style.focusedInput,
-              notchedOutline: style.whiteOutline
-            }
-          }}
-        />
-
-<TextField
-          id="filled-textarea"
-       
-          placeholder="Placeholder"
-          multiline
-          className={style.titletextbox}
-          InputProps={{
-            classes: {
-              focused: style.focusedInput,
-              notchedOutline: style.whiteOutline
-            }
-          }}
-        />
-
-      
+        id="filled-textarea"
+        placeholder="Placeholder"
+        multiline
+        className={style.titletextbox}
+        InputProps={{
+          classes: {
+            focused: style.focusedInput,
+            notchedOutline: style.whiteOutline
+          },
+          endAdornment: (
+            <div>
+      <IconButton className={style.calendarButton} onClick={handleClick}>
+        <CalendarMonthRoundedIcon className={style.calendarIcon} />
+      </IconButton>
+      <Popover
+        id={id}
+        open={open}
+        anchorEl={anchorEl}
+        onClose={handleClose}
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'center',
+        }}
+        transformOrigin={{
+          vertical: 'top',
+          horizontal: 'center',
+        }}
+      >
+        <LocalizationProvider dateAdapter={AdapterDayjs}>
+          <DateCalendar />
+        </LocalizationProvider>
+      </Popover>
       </div>
-
-      <div style={{ height: 400, width: '100%' }}>
-      <DataGrid
-        rows={rows}
-        columns={columns}
-        initialState={{
-          pagination: {
-            paginationModel: { page: 0, pageSize: 5 },
+          ),
+        }}
+      />
+    </Grid>
+    <Grid item xs={12} sm={6}>
+      <h4 className={style.headingtitle}>Outcome</h4>
+      
+      <TextField
+        id="filled-textarea"
+        placeholder="Placeholder"
+        multiline
+        className={style.titletextbox}
+        InputProps={{
+          classes: {
+            focused: style.focusedInput,
+            notchedOutline: style.whiteOutline
           },
         }}
-        pageSizeOptions={[5, 10]}
-        checkboxSelection
       />
-    </div>
+    </Grid>
+  </Grid>
+</div>
+
+
+     
     </Box>
     </Box>
 
-    
+    <Grid container spacing={2} className={style.btn} justifyContent="flex-end">
+  <Grid item xs={12} sm={6}>
+    <Button className={style.btntemp1}>Cancel</Button>
+  </Grid>
+  <Grid item xs={12} sm={6}>
+    <Button className={style.btntemp2}>Save</Button>
+  </Grid>
+</Grid>
+
       </section>
        
     

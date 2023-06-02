@@ -74,10 +74,26 @@
     width: 100% !important;
     padding-left: 10px !important;
     max-width: 550px !important;
+   
+  
+    margin-bottom: 10px !important;
+    outline:  white !important;
+    input::placeholder {
+      color: $white !important; /* Set the placeholder color to white */
+    }
+  }
+
+  .titletextboxdropdown {
+    color: $white !important;
+    width: 100% !important;
+    padding-left: 10px !important;
+    max-width: 550px !important;
     padding-right: 10px !important;
     margin-left: 10px !important;
     margin-bottom: 10px !important;
-    outline: 1px solid white !important;
+    // outline: white !important;
+    // border-color: white !important;
+    // background-color: #ffffff;
    
   }
 
@@ -85,7 +101,7 @@
     color: $white !important;
     width: 100% !important;
     padding-left: 10px !important;
-    max-width:1150px !important;
+    max-width:1160px !important;
     padding-right: 10px !important;
     margin-left: 10px !important;
     margin-bottom: 10px !important;
@@ -137,3 +153,66 @@
   border-color: white !important;
   color: white !important;
 }
+
+.btntemp2 {
+  background-color: red !important;
+  color: white !important;
+  font-weight: normal;
+  text-align: left;
+  text-transform: none !important;
+}
+
+.btn {
+  padding-left: 900px;
+  padding-bottom: 10px;
+  display: flex;
+  align-items: center;
+
+  @media (max-width: 800px) {
+    padding-left: 0;
+    justify-content: space-between;
+    gap: 10px; /* Reduce the spacing between buttons */
+  }
+}
+.btntemp1 {
+  background-color: black !important;
+  color: white !important;
+  font-weight: normal;
+  text-align: left;
+  border: 1px solid white !important;
+  margin-left: 1px !important;
+  text-transform: none !important;
+
+  @media (max-width: 600px) {
+    margin-right: 0 !important;
+    margin-bottom: 10px !important;
+  }
+}
+
+.headingtitle{
+  padding-left: 20px;
+}
+.titletextboxVehi{
+
+   color: $white !important;
+    width: 100% !important;
+    padding-left: 10px !important;
+    max-width: 550px !important;
+    padding-bottom: 5px !important;
+   
+  
+    margin-bottom: 10px !important;
+    outline:  white !important;
+    input::placeholder {
+      color: $white !important; /* Set the placeholder color to white */
+    }
+  }
+  .headingtitlevehi{
+    padding-left: 20px !important;
+    padding-top: -80px !important;
+  }
+
+  .calendarButton{
+    color: $white !important;
+    // padding-top: -10px !important;   
+  }
