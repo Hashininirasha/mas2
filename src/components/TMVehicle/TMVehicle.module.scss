@@ -21,7 +21,7 @@
             align-items: center;
             justify-content: center;
             background-color: $primary;
-            padding-left: 20px;
+            padding-left: 10px;
             
         }
 
@@ -30,7 +30,7 @@
             align-items: center;
             justify-content: center;
             background-color: $bgColor;
-            padding-left: 20px;
+            padding-left: 10px;
   
             .icon {
              
@@ -71,39 +71,39 @@
 
 .titletextbox {
     color: $white !important;
-    width: 100% !important;
-    padding-left: 10px !important;
-    max-width: 550px !important;
+    text-align: left;
+    // width: 50% !important;
+    // padding-left: 10px !important;
+    max-width: 520px !important;
    
   
-    margin-bottom: 10px !important;
-    outline:  white !important;
-    input::placeholder {
-      color: $white !important; /* Set the placeholder color to white */
-    }
+    // margin-bottom: 10px !important;
+    // outline:  white !important;
+    // input::placeholder {
+    //   color: $white !important; /* Set the placeholder color to white */
+    // }
   }
+
+  
 
   .titletextboxdropdown {
     color: $white !important;
-    width: 100% !important;
-    padding-left: 10px !important;
-    max-width: 550px !important;
-    padding-right: 10px !important;
-    margin-left: 10px !important;
-    margin-bottom: 10px !important;
-    // outline: white !important;
-    // border-color: white !important;
-    // background-color: #ffffff;
+    // width: 100% !important;
+    // padding-left: 10px !important;
+    // max-width: 550px !important;
+    // padding-right: 10px !important;
+    // margin-left: 10px !important;
+  
    
   }
 
   .titletextboxincident {
     color: $white !important;
     width: 100% !important;
-    padding-left: 10px !important;
-    max-width:1160px !important;
-    padding-right: 10px !important;
-    margin-left: 10px !important;
+    padding-left: 0px !important;
+    max-width:1080px !important;
+    padding-right: 15px !important;
+    margin-left: 25px !important;
     margin-bottom: 10px !important;
     border: white !important;
     outline-color: #ffffff !important;
@@ -135,7 +135,7 @@
     color: $white !important;
     width: auto !important;
     padding: 20px !important;
-    padding-left: 10px !important;
+   
    
 }
 
@@ -190,13 +190,13 @@
 }
 
 .headingtitle{
-  padding-left: 20px;
+  padding-left: 0px;
 }
 .titletextboxVehi{
 
    color: $white !important;
     width: 100% !important;
-    padding-left: 10px !important;
+    padding-left: 0px !important;
     max-width: 550px !important;
     padding-bottom: 5px !important;
    
@@ -207,12 +207,56 @@
       color: $white !important; /* Set the placeholder color to white */
     }
   }
-  .headingtitlevehi{
-    padding-left: 20px !important;
-    padding-top: -80px !important;
+  .headingtitlevehi {
+    text-align: left;
+    
   }
+  
 
   .calendarButton{
     color: $white !important;
-    // padding-top: -10px !important;   
+ 
+  }
+
+  .tablealign{
+    margin-left: 25px !important;
+  }
+
+  .titletextboxtext{
+
+    color: $white !important;
+    
+   
+  
+  }
+
+
+  .btntemp2 {
+    background-color: red !important;
+    color: white !important;
+    font-weight: normal;
+    text-align: left;
+    text-transform: none !important;
+  }
+  
+  .btn {
+    padding-left: 950px;
+    padding-bottom: 10px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .btntemp1 {
+    background-color: black !important;
+    color: white !important;
+    font-weight: normal;
+    text-align: left;
+    border: 1px solid white !important;
+    margin-right: 10px !important;
+    text-transform: none !important;
+  
+    @media (max-width: 600px) {
+      margin-right: 0 !important;
+      margin-bottom: 10px !important;
+    }
   }

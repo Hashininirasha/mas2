@@ -1,22 +1,35 @@
-import { Box, Button, FormControl, Grid, IconButton, InputLabel, MenuItem, Popover, Select, TextField, Typography } from '@mui/material'
+import { Box, Button, FormControl, Grid, IconButton, InputLabel, MenuItem, Select, TextField, Typography } from '@mui/material'
 import React, { useState } from 'react'
 import style from './TMVehicle.module.scss'
 import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDownOutlined';
 import { Alert, AlertTitle } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { APP_ROUTES } from '../../utilities/constants/routes.constants';
-import { DataGrid, GridColDef, GridValueGetterParams } from '@mui/x-data-grid';
-import CalendarMonthRoundedIcon from '@mui/icons-material/CalendarMonthRounded';
-import LocalizationProvider from '@mui/lab/LocalizationProvider/LocalizationProvider';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { DateCalendar } from '@mui/x-date-pickers/DateCalendar';
+import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 
 
 const TMVehicle = () => {
   const [showAlert, setShowAlert] = useState(false);
   const [value, setValue] = useState('');
 
+  const [isPlaceholderVisible1, setIsPlaceholderVisible1] = React.useState(true);
 
+  const handleSelectClick1 = () => {
+    setIsPlaceholderVisible1(false);
+  };
+
+  const [isPlaceholderVisible2, setIsPlaceholderVisible2] = React.useState(true);
+
+  const handleSelectClick2 = () => {
+    setIsPlaceholderVisible2(false);
+  };
+
+  const [isPlaceholderVisible3, setIsPlaceholderVisible3] = React.useState(true);
+
+  const handleSelectClick3 = () => {
+    setIsPlaceholderVisible3(false);
+  };
+  
   const [selectedOption1, setSelectedOption1] = useState('');
   const [selectedOption2, setSelectedOption2] = useState('');
   const [selectedOption3, setSelectedOption3] = useState('');
@@ -35,25 +48,11 @@ const TMVehicle = () => {
   };
   const navigate = useNavigate()
 
-  const [anchorEl, setAnchorEl] = useState(null);
-
-  const handleClick = (event: any) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-
-  const open = Boolean(anchorEl);
-  const id = open ? 'calendar-popover' : undefined;
-
   const handleNewRequest = () => {
 
     navigate(APP_ROUTES.TM_VEHICLE_MANAGEMENT)
   }
 
-  
   return (
     <div>
       <section className={style.gridContainer}>
@@ -69,7 +68,7 @@ const TMVehicle = () => {
         <hr />
         <div className={style.gridHeader}>
           <Box sx={{ flexGrow: 1 }} />
-          
+
         </div>
         <Box
       component="form"
@@ -80,120 +79,228 @@ const TMVehicle = () => {
       autoComplete="off"
     >
       <div> 
-    
-    
+
+
     </div>
-      
+
     <Box
       component="form"
       sx={{
         '& .MuiTextField-root': { m: 1, width: '25ch' },
+        '& fieldset': {
+          borderColor: 'white', // Set outline color to white
+        },
+        
       }}
       noValidate
       autoComplete="off"
     >
-      <div>
-
-      <Grid container spacing={2}justifyContent="flex-end">
-  <Grid item xs={12} sm={6}>
-
-
-      <h4 className={style.headingtitle}>Company Name</h4>
-     <FormControl className={style.titletextboxdropdown}>
-        <Select
-          labelId="option1-label"
-          id="option1"
-          value={selectedOption1}
-          onChange={handleChangeOption1}
-          className={style.titletextbox}
-        >
-          <MenuItem  value="option1Value1">Option 1 Value 1</MenuItem>
-          <MenuItem value="option1Value2">Option 1 Value 2</MenuItem>
-          <MenuItem value="option1Value3">Option 1 Value 3</MenuItem>
-        </Select>
-      </FormControl>
-
-      </Grid>
-  <Grid item xs={12} sm={6}>
-
-      <h4 className={style.headingtitlevehi}>Vehicle Number</h4>
-          <TextField
-        id="outlined-basic"
-        className={style.titletextboxVehi}
-        InputProps={{
-          classes: {
-            focused: style.focusedInput,
-            notchedOutline: style.whiteOutline,
-            input: style.whitePlaceholder
-          },
-          placeholder: "Enter Incident"
-          
-        }}
-      />
-</Grid>
-</Grid>
-
+      <div> 
+    
+    
     </div>
 
-{/* Second end*/}
-
+    <div style={{ overflowX: 'auto' }} className={style.tablealign}>
+  <table style={{ whiteSpace: 'nowrap' }}>
     
-      <div>
+      <tr>
+        <th>
 
-<Grid container spacing={2}justifyContent="flex-end">
-<Grid item xs={12} sm={6}>
+    <div style={{ overflowX: 'auto' }} className={style.tablealign}>
+  <table style={{ whiteSpace: 'nowrap' }}>
+    <thead>
+      <tr>
+        <th>
+          <h4 className={style.headingtitlevehi}>Company Name</h4>
+          <FormControl
+  className={style.titletextboxdropdown}
+  sx={{
+    '& .MuiSelect-select': {
+      color: 'white',
+      '&:hover, &:focus': {
+        color: 'white',
+      },
+    },
+    '& .MuiSelect-icon': { color: 'white' },
+    '& .MuiOutlinedInput-root': {
+      color: 'white',
+      '& fieldset': { borderColor: 'white' },
+      '&:hover fieldset, &:focus fieldset': { borderColor: 'white' },
+    },
+    '& .MuiMenuItem-root': {
+      color: 'white',
+      '&:hover, &:focus': {
+        backgroundColor: 'white',
+      },
+    },
+  }}
+>
+  <InputLabel
+    id="option1-label"
+    className={style.selectPlaceholder}
+    shrink={!isPlaceholderVisible1}
+    style={{ color: 'white' }}
+  >
+    {isPlaceholderVisible1 ? 'Select Company Name' : ''}
+  </InputLabel>
+  <Select
+    labelId="option1-label"
+    id="option1"
+    value={selectedOption1}
+    onChange={handleChangeOption1}
+    onClick={handleSelectClick1}
+    className={style.titletextbox}
+  >
+    <MenuItem value="option1Value1">Option 1 Value 1</MenuItem>
+    <MenuItem value="option1Value2">Option 1 Value 2</MenuItem>
+    <MenuItem value="option1Value3">Option 1 Value 3</MenuItem>
+  </Select>
+</FormControl>
+        </th>
+        <th>
+          <h4 className={style.headingtitlevehi} style={{paddingLeft: '15px'}}>Vehicle Number</h4>
+          <TextField
+            id="outlined-basic"
+            variant="outlined"
+            className={style.titletextbox}
+            style={{marginLeft: '15px'}}
+            InputProps={{
+              classes: {
+                focused: style.focusedInput,
+                notchedOutline: style.whiteOutline,
+                input: style.whitePlaceholder,
+              },
+              style: {
+                color: 'white', 
+              },
+              placeholder: 'Enter Incident',
+            }}
+          />
+        </th>
+      </tr>
+    </thead>
+    
+  </table>
+</div>
 
 
-<h4 className={style.headingtitle}>Vehicle Type</h4>
-<FormControl className={style.titletextboxdropdown}>
+
+<div style={{ overflowX: 'auto' }} className={style.tablealign}>
+  <table style={{ whiteSpace: 'nowrap' }}>
+    <thead>
+      <tr>
+        <th>
+          <h4 className={style.headingtitlevehi}>Vehicle Type</h4>
+          <FormControl
+  className={style.titletextboxdropdown}
+  sx={{
+    '& .MuiSelect-select': {
+      color: 'white',
+      '&:hover, &:focus': {
+        color: 'white',
+      },
+    },
+    '& .MuiSelect-icon': { color: 'white' },
+    '& .MuiOutlinedInput-root': {
+      color: 'white',
+      '& fieldset': { borderColor: 'white' },
+      '&:hover fieldset, &:focus fieldset': { borderColor: 'white' },
+    },
+    '& .MuiMenuItem-root': {
+      color: 'white',
+      '&:hover, &:focus': {
+        backgroundColor: 'white',
+      },
+    },
+  }}
+>
+  <InputLabel
+    id="option1-label"
+    className={style.selectPlaceholder}
+    shrink={!isPlaceholderVisible2}
+    style={{ color: 'white' }}
+  >
+    {isPlaceholderVisible2 ? 'Select Vehicle Type' : ''}
+  </InputLabel>
   <Select
     labelId="option1-label"
     id="option1"
     value={selectedOption2}
     onChange={handleChangeOption2}
+    onClick={handleSelectClick2}
     className={style.titletextbox}
   >
-    <MenuItem  value="option1Value1">Option 1 Value 1</MenuItem>
+    <MenuItem value="option1Value1">Option 1 Value 1</MenuItem>
     <MenuItem value="option1Value2">Option 1 Value 2</MenuItem>
     <MenuItem value="option1Value3">Option 1 Value 3</MenuItem>
   </Select>
 </FormControl>
-      </Grid>
-      <Grid item xs={12} sm={6}>
-      <h4 className={style.headingtitle}>Plant</h4>
-      <FormControl className={style.titletextboxdropdown}>
+
+        </th>
+        <th>
+          <h4 className={style.headingtitlevehi}  style={{ paddingLeft: '15px' }}>Plant</h4>
+          <FormControl
+  className={style.titletextboxdropdown} style={{paddingLeft: '15px'}}
+  sx={{
+    '& .MuiSelect-select': {
+      color: 'white',
+      '&:hover, &:focus': {
+        color: 'white',
+      },
+    },
+    '& .MuiSelect-icon': { color: 'white' },
+    '& .MuiOutlinedInput-root': {
+      color: 'white',
+      '& fieldset': { borderColor: 'white' },
+      '&:hover fieldset, &:focus fieldset': { borderColor: 'white' },
+    },
+    '& .MuiMenuItem-root': {
+      color: 'white',
+      '&:hover, &:focus': {
+        backgroundColor: 'white',
+      },
+    },
+  }}
+>
+  <InputLabel
+    id="option1-label"
+    className={style.selectPlaceholder}
+    shrink={!isPlaceholderVisible3}
+    style={{ color: 'white', paddingLeft: '15px' }}
+  >
+    {isPlaceholderVisible3 ? 'Select Plant' : ''}
+  </InputLabel>
   <Select
     labelId="option1-label"
     id="option1"
     value={selectedOption3}
     onChange={handleChangeOption3}
-    className={style.titletextboxdropdown}
+    onClick={handleSelectClick3}
+    className={style.titletextbox}
   >
-    <MenuItem  value="option1Value1">Option 1 Value 1</MenuItem>
+    <MenuItem value="option1Value1">Option 1 Value 1</MenuItem>
     <MenuItem value="option1Value2">Option 1 Value 2</MenuItem>
     <MenuItem value="option1Value3">Option 1 Value 3</MenuItem>
   </Select>
 </FormControl>
-      </Grid>
-      </Grid>
-      </div>
-        
-{/* Third end*/}
+        </th>
+      </tr>
+    </thead>
+    
+  </table>
+</div>
 
+   
 
       <div>
-        
       <div className={style.gridHeader}>
-       <h3 >Indicates</h3>
+       <h3>Indicates</h3>
        <br></br>
-       
       </div>
-      
-      <h4 className={style.headingtitle}> Incident</h4>
+
       <TextField
-      
           id="incident"
-     
+
           placeholder="Enter Incident"
           multiline
           className={style.titletextboxincident}
@@ -201,95 +308,98 @@ const TMVehicle = () => {
             classes: {
               focused: style.focusedInput,
               notchedOutline: style.whiteOutline
+            },
+            style: {
+              color: 'white', 
             }
           }}
-         
+
         />
 
       </div>
 
-{/* Fouth  */}
-<div>
-  <Grid container spacing={2} justifyContent="flex-end">
-    <Grid item xs={12} sm={6}>
-      <h4 className={style.headingtitle}>Date</h4>
-
-      <TextField
-        id="filled-textarea"
-        placeholder="Placeholder"
-        multiline
-        className={style.titletextbox}
-        InputProps={{
-          classes: {
-            focused: style.focusedInput,
-            notchedOutline: style.whiteOutline
-          },
-          endAdornment: (
-            <div>
-      <IconButton className={style.calendarButton} onClick={handleClick}>
-        <CalendarMonthRoundedIcon className={style.calendarIcon} />
-      </IconButton>
-      <Popover
-        id={id}
-        open={open}
-        anchorEl={anchorEl}
-        onClose={handleClose}
-        anchorOrigin={{
-          vertical: 'bottom',
-          horizontal: 'center',
-        }}
-        transformOrigin={{
-          vertical: 'top',
-          horizontal: 'center',
-        }}
+      <div style={{ overflowX: 'auto' }} className={style.tablealign}>
+  <table style={{ whiteSpace: 'nowrap' }}>
+    <thead>
+      <tr>
+        <th>
+          <h4 className={style.headingtitlevehi}>Date</h4>
+          <TextField
+  id="outlined-basic"
+  variant="outlined"
+  className={style.titletextbox}
+  style={{ marginLeft: '0px' }}
+  InputProps={{
+    classes: {
+      focused: style.focusedInput,
+      notchedOutline: style.whiteOutline,
+      input: style.whitePlaceholder,
+    },
+    style: {
+      color: 'white',
+    },
+    endAdornment: (
+      <IconButton
+        style={{ color: 'white' }}
+        aria-label="calendar"
+        component="span"
       >
-        <LocalizationProvider dateAdapter={AdapterDayjs}>
-          <DateCalendar />
-        </LocalizationProvider>
-      </Popover>
-      </div>
-          ),
-        }}
-      />
-    </Grid>
-    <Grid item xs={12} sm={6}>
-      <h4 className={style.headingtitle}>Outcome</h4>
-      
-      <TextField
-        id="filled-textarea"
-        placeholder="Placeholder"
-        multiline
-        className={style.titletextbox}
-        InputProps={{
-          classes: {
-            focused: style.focusedInput,
-            notchedOutline: style.whiteOutline
-          },
-        }}
-      />
-    </Grid>
-  </Grid>
+        <CalendarMonthIcon />
+      </IconButton>
+    ),
+  }}
+  placeholder="dd/mm/yyyy"
+/>
+
+
+        </th>
+        <th>
+          <h4 className={style.headingtitlevehi} style={{paddingLeft: '5px'}}>Outcome</h4>
+          <TextField
+            id="outlined-basic"
+            variant="outlined"
+            className={style.titletextbox}
+            style={{marginLeft: '5px'}}
+            InputProps={{
+              classes: {
+                focused: style.focusedInput,
+                notchedOutline: style.whiteOutline,
+                input: style.whitePlaceholder,
+              },
+              style: {
+                color: 'white', 
+              },
+              placeholder: 'Enter outcome',
+            }}
+          />
+        </th>
+      </tr>
+    </thead>
+    
+  </table>
+  </div>
+  
+  </th>
+  
+  </tr>
+  
+</table>
+  <div className={style.btn}>
+            <Button className={style.btntemp1}>Delete</Button>
+            <Button className={style.btntemp2}>Use</Button>
+          </div>
 </div>
 
 
-     
     </Box>
-    </Box>
-
-    <Grid container spacing={2} className={style.btn} justifyContent="flex-end">
-  <Grid item xs={12} sm={6}>
-    <Button className={style.btntemp1}>Cancel</Button>
-  </Grid>
-  <Grid item xs={12} sm={6}>
-    <Button className={style.btntemp2}>Save</Button>
-  </Grid>
-</Grid>
-
-      </section>
+  
+</Box>
+</section>
        
     
-    </div>
-  );
-};
+       </div>
+     );
+   };
+   
 
 export default TMVehicle;
