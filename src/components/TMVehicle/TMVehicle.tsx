@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import { APP_ROUTES } from '../../utilities/constants/routes.constants';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import DataTable from '../TMVehicle/Table'
+import BasicDateCalendar from './Calendar'
 
 
 const TMVehicle = () => {
@@ -389,6 +390,7 @@ const TMVehicle = () => {
   <div className={style.btn}>
             <Button className={style.btntemp1}>Delete</Button>
             <Button className={style.btntemp2}>Use</Button>
+            
           </div>
 </div>
 
@@ -397,9 +399,11 @@ const TMVehicle = () => {
   
 </Box>
 </section>
-       
+<BasicDateCalendar/>
+
     
        </div>
+
      );
    };
    
