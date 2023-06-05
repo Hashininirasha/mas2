@@ -85,6 +85,20 @@ const AppLayout: React.FC<{
              </NavLink>
          </aside>
 
+         <aside className={'links'}>
+          <NavLink
+             style={{ textDecoration: 'none' }}
+             className={({ isActive }) => (isActive ? 'layout-row is-active' : 'layout-row')}
+             to={APP_ROUTES.TM_DRIVER_MANAGEMENT}
+           >
+             <div
+               className={`navBarContent navLink layout-row`}
+             >
+               <span>TM Driver Alocation</span>
+             </div>
+           </NavLink>
+       </aside>
+
           </aside>
           
         </aside>

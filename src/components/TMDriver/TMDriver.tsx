@@ -1,15 +1,12 @@
 import { Box, Button, FormControl, Grid, IconButton, InputLabel, MenuItem, Select, TextField, Typography } from '@mui/material'
 import React, { useState } from 'react'
-import style from './TMVehicle.module.scss'
-import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDownOutlined';
-import { Alert, AlertTitle } from '@mui/material';
+import style from './TMDriver.module.scss'
 import { useNavigate } from 'react-router-dom';
 import { APP_ROUTES } from '../../utilities/constants/routes.constants';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
-import DataTable from '../TMVehicle/Table'
 
 
-const TMVehicle = () => {
+const TMDriver = () => {
   const [showAlert, setShowAlert] = useState(false);
   const [value, setValue] = useState('');
 
@@ -31,10 +28,21 @@ const TMVehicle = () => {
     setIsPlaceholderVisible3(false);
   };
   
+  const [isPlaceholderVisible4, setIsPlaceholderVisible4] = React.useState(true);
+
+  const handleSelectClick4 = () => {
+    setIsPlaceholderVisible4(false);
+  };
+  const [isPlaceholderVisible5, setIsPlaceholderVisible5] = React.useState(true);
+
+  const handleSelectClick5 = () => {
+    setIsPlaceholderVisible5(false);
+  };
   const [selectedOption1, setSelectedOption1] = useState('');
   const [selectedOption2, setSelectedOption2] = useState('');
   const [selectedOption3, setSelectedOption3] = useState('');
-
+  const [selectedOption4, setSelectedOption4] = useState('');
+  const [selectedOption5, setSelectedOption5] = useState('');
 
   const handleChangeOption1 = (event: any) => {
     setSelectedOption1(event.target.value);
@@ -46,6 +54,14 @@ const TMVehicle = () => {
 
   const handleChangeOption3 = (event: any) => {
     setSelectedOption3(event.target.value);
+  };
+
+  const handleChangeOption4 = (event: any) => {
+    setSelectedOption4(event.target.value);
+  };
+
+  const handleChangeOption5 = (event: any) => {
+    setSelectedOption5(event.target.value);
   };
   const navigate = useNavigate()
 
@@ -112,8 +128,30 @@ const TMVehicle = () => {
     <thead>
       <tr>
         <th>
-          <h4 className={style.headingtitlevehi}>Company Name</h4>
-          <FormControl
+          <h4 className={style.headingtitlevehi}>Driver Name</h4>
+          <TextField
+            id="outlined-basic"
+            variant="outlined"
+            className={style.titletextbox}
+            style={{marginLeft: '0px'}}
+            InputProps={{
+              classes: {
+                focused: style.focusedInput,
+                notchedOutline: style.whiteOutline,
+                input: style.whitePlaceholder,
+              },
+              style: {
+                color: 'white', 
+              },
+              placeholder: 'Enter Driver Name',
+            }}
+          />
+        </th>
+        <th>
+          <h4 className={style.headingtitlevehi}>Transport Company</h4>
+          
+
+<FormControl
   className={style.titletextboxdropdown}
   sx={{
     '& .MuiSelect-select': {
@@ -137,12 +175,12 @@ const TMVehicle = () => {
   }}
 >
   <InputLabel
-    id="company_name"
+    id="option1-label"
     className={style.selectPlaceholder}
     shrink={!isPlaceholderVisible1}
-
+    style={{ color: 'white' }}
   >
-    {isPlaceholderVisible1 ? 'Select Company Name' : ''}
+    {isPlaceholderVisible1 ? 'Select Transport Comapny' : ''}
   </InputLabel>
   <Select
     labelId="option1-label"
@@ -157,26 +195,8 @@ const TMVehicle = () => {
     <MenuItem value="option1Value3">Option 1 Value 3</MenuItem>
   </Select>
 </FormControl>
-        </th>
-        <th>
-          <h4 className={style.headingtitlevehi} style={{paddingLeft: '15px'}}>Vehicle Number</h4>
-          <TextField
-            id="vehicle_number"
-            variant="outlined"
-            className={style.titletextbox}
-            style={{marginLeft: '15px'}}
-            InputProps={{
-              classes: {
-                focused: style.focusedInput,
-                notchedOutline: style.whiteOutline,
-                input: style.whitePlaceholder,
-              },
-              style: {
-                color: 'white', 
-              },
-              placeholder: 'Enter Incident',
-            }}
-          />
+
+
         </th>
       </tr>
     </thead>
@@ -191,7 +211,67 @@ const TMVehicle = () => {
     <thead>
       <tr>
         <th>
-          <h4 className={style.headingtitlevehi}>Vehicle Type</h4>
+          <h4 className={style.headingtitlevehi}>Driver NIC Number</h4>
+          
+          <TextField
+            id="outlined-basic"
+            variant="outlined"
+            className={style.titletextbox}
+            style={{marginLeft: '0px'}}
+            InputProps={{
+              classes: {
+                focused: style.focusedInput,
+                notchedOutline: style.whiteOutline,
+                input: style.whitePlaceholder,
+              },
+              style: {
+                color: 'white', 
+              },
+              placeholder: 'Enter Driver NIC Number',
+            }}
+          />
+
+        </th>
+        <th>
+          <h4 className={style.headingtitlevehi}>Driver License Number</h4>
+          <TextField
+            id="outlined-basic"
+            variant="outlined"
+            className={style.titletextbox}
+            style={{marginLeft: '0px'}}
+            InputProps={{
+              classes: {
+                focused: style.focusedInput,
+                notchedOutline: style.whiteOutline,
+                input: style.whitePlaceholder,
+              },
+              style: {
+                color: 'white', 
+              },
+              placeholder: 'Enter Driver License Number',
+            }}
+          />
+        </th>
+      </tr>
+    </thead>
+    
+  </table>
+</div>
+<br></br>
+   <hr></hr>
+   
+   <div className={style.gridHeader}>
+       <h3>Assign Vehicles</h3>
+       
+       <br></br>
+       
+      </div>
+   <div style={{ overflowX: 'auto' }} className={style.tablealign}>
+  <table style={{ whiteSpace: 'nowrap' }}>
+    <thead>
+      <tr>
+        <th>
+          <h4 className={style.headingtitlevehi}>Plant</h4>
           <FormControl
   className={style.titletextboxdropdown}
   sx={{
@@ -216,12 +296,12 @@ const TMVehicle = () => {
   }}
 >
   <InputLabel
-    id="vehicle_type"
+    id="option1-label"
     className={style.selectPlaceholder}
     shrink={!isPlaceholderVisible2}
     style={{ color: 'white' }}
   >
-    {isPlaceholderVisible2 ? 'Select Vehicle Type' : ''}
+    {isPlaceholderVisible2 ? 'Select Plant' : ''}
   </InputLabel>
   <Select
     labelId="option1-label"
@@ -236,12 +316,12 @@ const TMVehicle = () => {
     <MenuItem value="option1Value3">Option 1 Value 3</MenuItem>
   </Select>
 </FormControl>
-
         </th>
         <th>
-          <h4 className={style.headingtitlevehi}  style={{ paddingLeft: '15px' }}>Plant</h4>
+          <h4 className={style.headingtitlevehi} style={{paddingLeft: '15px'}}>Vehicle Type</h4>
           <FormControl
-  className={style.titletextboxdropdown} style={{paddingLeft: '15px'}}
+          style={{paddingLeft: '10px'}}
+  className={style.titletextboxdropdown}
   sx={{
     '& .MuiSelect-select': {
       color: 'white',
@@ -264,12 +344,13 @@ const TMVehicle = () => {
   }}
 >
   <InputLabel
-    id="plant"
+    id="option1-label"
     className={style.selectPlaceholder}
     shrink={!isPlaceholderVisible3}
-    style={{ color: 'white', paddingLeft: '15px' }}
+    style={{ color: 'white', paddingLeft: '10px' }}
+    
   >
-    {isPlaceholderVisible3 ? 'Select Plant' : ''}
+    {isPlaceholderVisible3 ? 'Select Vehicle Type' : ''}
   </InputLabel>
   <Select
     labelId="option1-label"
@@ -286,23 +367,78 @@ const TMVehicle = () => {
 </FormControl>
         </th>
       </tr>
+      <tr>
+        <th>
+        <h4 className={style.headingtitlevehi}>Vehicle Number</h4>
+          <FormControl
+  className={style.titletextboxdropdown}
+  sx={{
+    '& .MuiSelect-select': {
+      color: 'white',
+      '&:hover, &:focus': {
+        color: 'white',
+      },
+    },
+    '& .MuiSelect-icon': { color: 'white' },
+    '& .MuiOutlinedInput-root': {
+      color: 'white',
+      '& fieldset': { borderColor: 'white' },
+      '&:hover fieldset, &:focus fieldset': { borderColor: 'white' },
+    },
+    '& .MuiMenuItem-root': {
+      color: 'white',
+      '&:hover, &:focus': {
+        backgroundColor: 'white',
+      },
+    },
+  }}
+>
+  <InputLabel
+    id="option1-label"
+    className={style.selectPlaceholder}
+    shrink={!isPlaceholderVisible4}
+    style={{ color: 'white' }}
+  >
+    {isPlaceholderVisible4 ? 'Select Vehicle Number' : ''}
+  </InputLabel>
+  <Select
+    labelId="option1-label"
+    id="option1"
+    value={selectedOption4}
+    onChange={handleChangeOption4}
+    onClick={handleSelectClick4}
+    className={style.titletextbox}
+  >
+    <MenuItem value="option1Value1">Option 1 Value 1</MenuItem>
+    <MenuItem value="option1Value2">Option 1 Value 2</MenuItem>
+    <MenuItem value="option1Value3">Option 1 Value 3</MenuItem>
+  </Select>
+</FormControl>
+        </th>
+      </tr>
+
     </thead>
     
   </table>
 </div>
-
-   
-
-      <div>
+<div className={style.btnfirst}>
+            <Button className={style.btntemp1first}>Clear</Button>
+            <Button className={style.btntemp2first}>Add</Button>
+          </div>
+          <hr></hr>
+         
+          <div>
       <div className={style.gridHeader}>
        <h3>Indicates</h3>
+       
        <br></br>
+       
       </div>
       <h4 className={style.headingtitlevehi} style={{paddingLeft: '20px'}}>Incident</h4>
       <TextField
           id="incident"
+
           placeholder="Enter Incident"
-          
           multiline
           className={style.titletextboxincident}
           InputProps={{
@@ -319,6 +455,11 @@ const TMVehicle = () => {
 
       </div>
 
+
+
+
+
+
       <div style={{ overflowX: 'auto' }} className={style.tablealign}>
   <table style={{ whiteSpace: 'nowrap' }}>
     <thead>
@@ -326,7 +467,7 @@ const TMVehicle = () => {
         <th>
           <h4 className={style.headingtitlevehi}>Date</h4>
           <TextField
-  id="date"
+  id="outlined-basic"
   variant="outlined"
   className={style.titletextbox}
   style={{ marginLeft: '0px' }}
@@ -357,7 +498,7 @@ const TMVehicle = () => {
         <th>
           <h4 className={style.headingtitlevehi} style={{paddingLeft: '5px'}}>Outcome</h4>
           <TextField
-            id="outcome"
+            id="outlined-basic"
             variant="outlined"
             className={style.titletextbox}
             style={{marginLeft: '5px'}}
@@ -375,6 +516,56 @@ const TMVehicle = () => {
           />
         </th>
       </tr>
+
+      <tr>
+        <th>
+        <h4 className={style.headingtitlevehi}>Vehicle Number</h4>
+          <FormControl
+  className={style.titletextboxdropdown}
+  sx={{
+    '& .MuiSelect-select': {
+      color: 'white',
+      '&:hover, &:focus': {
+        color: 'white',
+      },
+    },
+    '& .MuiSelect-icon': { color: 'white' },
+    '& .MuiOutlinedInput-root': {
+      color: 'white',
+      '& fieldset': { borderColor: 'white' },
+      '&:hover fieldset, &:focus fieldset': { borderColor: 'white' },
+    },
+    '& .MuiMenuItem-root': {
+      color: 'white',
+      '&:hover, &:focus': {
+        backgroundColor: 'white',
+      },
+    },
+  }}
+>
+  <InputLabel
+    id="option1-label"
+    className={style.selectPlaceholder}
+    shrink={!isPlaceholderVisible5}
+    style={{ color: 'white' }}
+  >
+    {isPlaceholderVisible5 ? 'Select Vehicle Number' : ''}
+  </InputLabel>
+  <Select
+    labelId="option1-label"
+    id="option1"
+    value={selectedOption5}
+    onChange={handleChangeOption5}
+    onClick={handleSelectClick5}
+    className={style.titletextbox}
+  >
+    <MenuItem value="option1Value1">Option 1 Value 1</MenuItem>
+    <MenuItem value="option1Value2">Option 1 Value 2</MenuItem>
+    <MenuItem value="option1Value3">Option 1 Value 3</MenuItem>
+  </Select>
+</FormControl>
+        </th>
+      </tr>
     </thead>
     
   </table>
@@ -383,13 +574,12 @@ const TMVehicle = () => {
   </th>
   
   </tr>
-  <DataTable/>
-</table>
-<br></br>
   <div className={style.btn}>
             <Button className={style.btntemp1}>Delete</Button>
             <Button className={style.btntemp2}>Use</Button>
           </div>
+</table>
+  
 </div>
 
 
@@ -404,4 +594,4 @@ const TMVehicle = () => {
    };
    
 
-export default TMVehicle;
+export default TMDriver;

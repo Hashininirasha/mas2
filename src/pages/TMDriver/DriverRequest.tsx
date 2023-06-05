@@ -3,9 +3,9 @@ import AppLayout from '../../templates/AppLayout/AppLayoutChild'
 import { useDispatch, useSelector } from 'react-redux'
 import { ApplicationStateDto, RequestListDto } from '../../utilities/models'
 import { requestActions } from '../../redux/actions'
-import TMVehicle from '../../components/TMVehicle/TMVehicle'
+import TMDriver from '../../components/TMDriver/TMDriver'
 
-const VehicleRequest = () => {
+const DriverRequest = () => {
 
   const dispatch = useDispatch()
   const [requestList, setRequestList] = useState<RequestListDto[]>([])
@@ -30,11 +30,11 @@ const VehicleRequest = () => {
   return (
     <React.Fragment>
       <AppLayout componentTitle="NewRequest">
-     <TMVehicle/>
+     <TMDriver/>
 
       </AppLayout>
     </React.Fragment>
   )
 }
 
-export default VehicleRequest
+export default DriverRequest;

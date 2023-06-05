@@ -1,0 +1,25 @@
+@import "../../assets//theme/constants.scss";
+
+
+.tablestyle{
+    color: $white !important;
+    background-color: $bgColor !important ;
+    
+
+
+    .tablecell{
+        color: $white !important;
+        padding-left: 20px;
+        padding-right: 50px;
+       
+    }
+
+    .tablehead{
+        color: $white !important;
+        background-color: $bgColor !important ;
+    }
+    
+    .box{
+        padding-left: 25px !important;
+    }
+}
