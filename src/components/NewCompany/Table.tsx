@@ -2,6 +2,8 @@ import React from 'react';
 import { DataGrid, GridColDef, GridCellParams } from '@mui/x-data-grid';
 import styles from './Table.module.scss';
 import DeleteIcon from '@mui/icons-material/Delete';
+import Switch from '@mui/material/Switch';
+
 
 const columns: GridColDef[] = [
   
@@ -46,7 +48,7 @@ const columns: GridColDef[] = [
   {
     field: 'action',
     headerName: 'Action',
-    width: 200,
+    width: 180,
     renderHeader: () => <span className={styles.columnHeader}>Action</span>,
     renderCell: (params: GridCellParams) => (
       <span className={styles.cell}>
@@ -57,11 +59,11 @@ const columns: GridColDef[] = [
   {
     field: 'status',
     headerName: 'Status',
-    width: 200,
+    width: 180,
     renderHeader: () => <span className={styles.columnHeader}>Status</span>,
     renderCell: (params: GridCellParams) => (
       <span className={styles.cell}>
-        <DeleteIcon className={styles.deleteIcon} />
+        <Switch defaultChecked checked={params.value as boolean} onChange={() => {}} />
       </span>
     ),
   },

@@ -493,7 +493,7 @@ const NewCompnay = () => {
     id="bank"
     className={style.selectPlaceholder}
     shrink={!isPlaceholderVisible2}
-    style={{ color: 'white' }}
+    style={{ color: 'white', paddingLeft: '10px' }}
   >
     {isPlaceholderVisible2 ? 'Select Bank' : ''}
   </InputLabel>
