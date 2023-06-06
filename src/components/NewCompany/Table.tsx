@@ -13,7 +13,7 @@ const columns: GridColDef[] = [
     width: 140,
     renderHeader: () => <span className={styles.columnHeader}>Payment Method</span>,
     renderCell: (params: GridCellParams) => (
-      <span className={styles.cell}>{params.value as React.ReactNode}</span>
+      <span className={styles.cell} style={{paddingLeft: "10px"}}>{params.value as React.ReactNode}</span>
     ),
   },
   {
@@ -51,7 +51,7 @@ const columns: GridColDef[] = [
     width: 180,
     renderHeader: () => <span className={styles.columnHeader}>Action</span>,
     renderCell: (params: GridCellParams) => (
-      <span className={styles.cell}>
+      <span className={styles.cell} style={{paddingLeft: "15px"}}>
         <DeleteIcon className={styles.deleteIcon} />
       </span>
     ),
