@@ -589,7 +589,7 @@ const NewCompnay = () => {
   
 </Box>
 
-
+<hr></hr>
 </section>
 
 
