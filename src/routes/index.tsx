@@ -6,6 +6,7 @@ import LMRequestCreation from "../pages/LMRequestCreation/LMRequestCreation"
 import NewRequest from "../pages/TrasportRequest/NewRequest"
 import VehicleRequest from '../pages/TMVehicle/VehicleRequest'
 import DriverRequest from '../pages/TMDriver/DriverRequest'
+import AddCompany from '../pages/NewCompany/NewCompany'
 
 const AppRoutes = () => {
   return (
@@ -51,6 +52,13 @@ const AppRoutes = () => {
         <Route
           path={APP_ROUTES.TM_DRIVER_MANAGEMENT}
           element={<DriverRequest/>}
+        >
+        </Route>
+
+        
+        <Route
+          path={APP_ROUTES.SBU_COMPANY_ADD}
+          element={<AddCompany/>}
         >
         </Route>
 

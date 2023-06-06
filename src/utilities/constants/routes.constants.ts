@@ -16,8 +16,9 @@ export enum APP_ROUTES {
     TM_VEHICLE_MANAGEMENT = '/vehicle-management',
     TM_DRIVER_MANAGEMENT = '/driver-management',
     TM_REQUEST_APPROVAL = '/request-approval',
-    TM_VEHICLE_ALLOCATION = '/vehicle-allocation'
+    TM_VEHICLE_ALLOCATION = '/vehicle-allocation',
 
-    
+    // SBU
+    SBU_COMPANY_ADD = '/new-company'
 
 }

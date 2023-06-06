@@ -1,12 +1,32 @@
-import * as React from 'react';
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { DateCalendar } from '@mui/x-date-pickers/DateCalendar';
+import React, { useState } from 'react';
 
-export default function BasicDateCalendar() {
+function Datapicker() {
+  const [date, setDate] = useState('');
+  console.log("date", date);
+
   return (
-    <LocalizationProvider dateAdapter={AdapterDayjs}>
-      <DateCalendar />
-    </LocalizationProvider>
+    <div className='main'>
+      <input
+        type="date"
+        onChange={e => setDate(e.target.value)}
+        style={{
+          paddingLeft: "0px",
+          backgroundColor: '#282828',
+          color: '#6b6b6b',
+          width: "470px",
+          outline: 'none', // Add this line to remove the outline
+          border: 'none', // Add this line to remove the borders
+        }}
+      />
+      <style>{`
+        input[type="date"]::-webkit-calendar-picker-indicator {
+          filter: invert(1);
+          width: 24px;
+          height: 24px;
+        }
+      `}</style>
+    </div>
   );
 }
+
+export default Datapicker;

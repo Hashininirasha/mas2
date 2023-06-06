@@ -99,6 +99,22 @@ const AppLayout: React.FC<{
            </NavLink>
        </aside>
 
+
+       <aside className={'links'}>
+        <NavLink
+           style={{ textDecoration: 'none' }}
+           className={({ isActive }) => (isActive ? 'layout-row is-active' : 'layout-row')}
+           to={APP_ROUTES.SBU_COMPANY_ADD}
+         >
+           <div
+             className={`navBarContent navLink layout-row`}
+           >
+             <span>SBU Manage Com</span>
+           </div>
+         </NavLink>
+     </aside>
+
+
           </aside>
           
         </aside>

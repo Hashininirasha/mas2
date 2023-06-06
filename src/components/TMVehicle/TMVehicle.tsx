@@ -5,9 +5,8 @@ import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDown
 import { Alert, AlertTitle } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { APP_ROUTES } from '../../utilities/constants/routes.constants';
-import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import DataTable from '../TMVehicle/Table'
-import BasicDateCalendar from './Calendar'
+import Datapicker from './Calendar'
 
 
 const TMVehicle = () => {
@@ -296,7 +295,7 @@ const TMVehicle = () => {
 
       <div>
       <div className={style.gridHeader}>
-       <h3>Indicates</h3>
+       <h3 style={{paddingLeft: '00px'}}>Indicates</h3>
        <br></br>
       </div>
       <h4 className={style.headingtitlevehi} style={{paddingLeft: '20px'}}>Incident</h4>
@@ -342,11 +341,13 @@ const TMVehicle = () => {
     },
     endAdornment: (
       <IconButton
-        style={{ color: 'white' }}
+        style={{ color: 'white'}}
         aria-label="calendar"
         component="span"
-      >
-        <CalendarMonthIcon />
+      ><Datapicker/>
+      <div style={{paddingRight: "55px"}}>
+      
+      </div>
       </IconButton>
     ),
   }}
@@ -384,6 +385,14 @@ const TMVehicle = () => {
   </th>
   
   </tr>
+  <br></br>
+  <div className={style.btnfirst}>
+            <Button className={style.btntemp1first}>Clear</Button>
+            <Button className={style.btntemp2first}>Add</Button>
+          </div>
+          
+  <h4 className={style.headingtitlevehi} style={{paddingLeft: '30px'}}>Recorded Incidents</h4>
+
   <DataTable/>
 </table>
 <br></br>
@@ -398,8 +407,10 @@ const TMVehicle = () => {
     </Box>
   
 </Box>
+
+
 </section>
-<BasicDateCalendar/>
+
 
     
        </div>

@@ -46,7 +46,7 @@ const AppLayout: React.FC<{
                <NavLink
                   style={{ textDecoration: 'none' }}
                   className={({ isActive }) => (isActive ? 'layout-row is-active' : 'layout-row')}
-                  to={APP_ROUTES.LM_DASHBOARD}
+                  to={APP_ROUTES.TM_REQUEST_APPROVAL}
                 >
                   <div
                     className={`navBarContent navLink layout-row`}
