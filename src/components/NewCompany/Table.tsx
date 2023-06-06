@@ -73,12 +73,12 @@ const rows = [
   { id: "4562278121", paymethod: 'Cash', beneficiary: 'Lahiru Rajapaksha', bank: "BOC" },
   { id: "643126", paymethod: 'Cash', beneficiary: 'Lahiru Rajapaksha', bank: "BOC" },
   { id: "861532", paymethod: 'Cash', beneficiary: 'Lahiru Rajapaksha', bank: "BOC" },
-  { id: "33456565", paymethod: 'Cash', beneficiary: 'Lahiru Rajapaksha ', bank: "BOC" },
+  { id: "33456565", paymethod: 'Cash', beneficiary: 'Lahiru Rajapaksha ', bank: "NSB" },
   { id: "8651", paymethod: 'Cash', beneficiary: 'Lahiru Rajapaksha ', bank: "BOC" },
-  { id: "846531", paymethod: 'Cash', beneficiary: 'Lahiru Rajapaksha', bank: "BOC" },
+  { id: "846531", paymethod: 'Cash', beneficiary: 'Lahiru Rajapaksha', bank: "NSB" },
   { id: "43131", paymethod: 'Cash', beneficiary: 'Lahiru Rajapaksha ', bank: "BOC" },
   { id: "541302", paymethod: 'Cash', beneficiary: 'Lahiru Rajapaksha ', bank: "BOC" },
-  { id: "520122", paymethod: 'Cash', beneficiary: 'Lahiru Rajapaksha', bank: "BOC" },
+  { id: "520122", paymethod: 'Cash', beneficiary: 'Lahiru Rajapaksha', bank: "PP" },
   { id: "4524245", paymethod: 'Cash', beneficiary: 'Lahiru Rajapaksha ' , bank: "BOC"},
   { id: "425445", paymethod: 'Cash', beneficiary: 'Lahiru Rajapaksha', bank: "BOC" },
 ];
@@ -96,8 +96,7 @@ export default function DataTable() {
             paginationModel: { page: 0, pageSize: 5 },
           },
         }}
-        className={styles.dataGrid}
-         
+        className={styles.dataGrid}        
       />
     </div>
   );

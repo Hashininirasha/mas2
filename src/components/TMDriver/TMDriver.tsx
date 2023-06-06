@@ -464,10 +464,6 @@ const TMDriver = () => {
       </div>
 
 
-
-
-
-
       <div style={{ overflowX: 'auto' }} className={style.tablealign}>
   <table style={{ whiteSpace: 'nowrap' }}>
     <thead>
@@ -504,12 +500,12 @@ const TMDriver = () => {
 
         </th>
         <th>
-          <h4 className={style.headingtitlevehi} style={{paddingLeft: '5px'}}>Outcome</h4>
+          <h4 className={style.headingtitlevehi} style={{paddingLeft: '10px'}}>Outcome</h4>
           <TextField
             id="outlined-basic"
             variant="outlined"
             className={style.titletextbox}
-            style={{marginLeft: '5px'}}
+            style={{marginLeft: '10px'}}
             InputProps={{
               classes: {
                 focused: style.focusedInput,

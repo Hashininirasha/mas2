@@ -582,18 +582,13 @@ const NewCompnay = () => {
 <br></br>
 
 </div>
-
- 
-
     </Box>
   
 </Box>
 
 <hr></hr>
 </section>
-
-
-    
+   
        </div>
 
      );
