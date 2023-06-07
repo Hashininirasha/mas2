@@ -10,7 +10,7 @@ const columns: GridColDef[] = [
   {
     field: 'paymethod',
     headerName: 'Payment Method',
-    width: 140,
+    width: 220,
     renderHeader: () => <span className={styles.columnHeader}>Payment Method</span>,
     renderCell: (params: GridCellParams) => (
       <span className={styles.cell} style={{paddingLeft: "10px"}}>{params.value as React.ReactNode}</span>
@@ -29,7 +29,7 @@ const columns: GridColDef[] = [
   {
     field: 'beneficiary',
     headerName: 'Beneficiary Name',
-    width: 200,
+    width: 220,
     renderHeader: () => <span className={styles.columnHeader}>Beneficiary Name</span>,
     renderCell: (params: GridCellParams) => (
       <span className={styles.cell}>{params.value as React.ReactNode}</span>
@@ -39,7 +39,7 @@ const columns: GridColDef[] = [
   {
     field: 'id',
     headerName: 'Account Number',
-    width: 200,
+    width: 230,
     renderHeader: () => <span className={styles.columnHeader} >Account Number</span>,
     renderCell: (params: GridCellParams) => (
       <span className={styles.cell}>{params.value as React.ReactNode}</span>
@@ -48,18 +48,18 @@ const columns: GridColDef[] = [
   {
     field: 'action',
     headerName: 'Action',
-    width: 180,
+    width: 150,
     renderHeader: () => <span className={styles.columnHeader}>Action</span>,
     renderCell: (params: GridCellParams) => (
       <span className={styles.cell} style={{paddingLeft: "15px"}}>
-        <DeleteIcon className={styles.deleteIcon} />
+        <DeleteIcon className={styles.deleteIcon}/>
       </span>
     ),
   },
   {
     field: 'status',
     headerName: 'Status',
-    width: 180,
+    width: 150,
     renderHeader: () => <span className={styles.columnHeader}>Status</span>,
     renderCell: (params: GridCellParams) => (
       <span className={styles.cell}>
@@ -87,7 +87,7 @@ const rows = [
 
 export default function DataTable() {
   return (
-    <div className={styles.table} style={{ height: 370, width: '100%' }}>
+    <div className={styles.table} style={{ height: 360, width: '100%' }}>
       <DataGrid
         rows={rows}
         columns={columns}
