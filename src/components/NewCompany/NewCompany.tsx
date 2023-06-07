@@ -190,17 +190,17 @@ const NewCompnay = () => {
   <InputLabel
     id="sbu"
     className={style.selectPlaceholder}
-    shrink={!isPlaceholderVisible2}
+    shrink={!isPlaceholderVisible1}
     style={{ color: 'white' }}
   >
-    {isPlaceholderVisible2 ? 'Select Attached SBUs' : ''}
+    {isPlaceholderVisible1 ? 'Select Attached SBUs' : ''}
   </InputLabel>
   <Select
     labelId="option1-label"
     id="option1"
-    value={selectedOption2}
-    onChange={handleChangeOption2}
-    onClick={handleSelectClick2}
+    value={selectedOption1}
+    onChange={handleChangeOption1}
+    onClick={handleSelectClick1}
     className={style.titletextbox}
   >
     <MenuItem value="option1Value1">Option 1 Value 1</MenuItem>
@@ -495,14 +495,14 @@ const NewCompnay = () => {
     shrink={!isPlaceholderVisible2}
     style={{ color: 'white', paddingLeft: '10px' }}
   >
-    {isPlaceholderVisible2 ? 'Select Bank' : ''}
+    {isPlaceholderVisible3 ? 'Select Bank' : ''}
   </InputLabel>
   <Select
     labelId="option1-label"
     id="option1"
-    value={selectedOption2}
-    onChange={handleChangeOption2}
-    onClick={handleSelectClick2}
+    value={selectedOption3}
+    onChange={handleChangeOption3}
+    onClick={handleSelectClick3}
     className={style.titletextbox}
   >
     <MenuItem value="option1Value1">Option 1 Value 1</MenuItem>
