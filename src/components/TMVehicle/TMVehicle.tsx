@@ -285,13 +285,54 @@ const TMVehicle = () => {
   </Select>
 </FormControl>
         </th>
+        
       </tr>
+      
     </thead>
     
   </table>
 </div>
 
-   
+<div style={{ overflowX: 'auto' }} className={style.tablealign}>
+  <table style={{ whiteSpace: 'nowrap' }}>
+    <thead>
+      <tr>
+       
+
+          <th>
+          <h4 className={style.headingtitlevehi}>Available Seats</h4>
+          <TextField
+            id="Seats"
+            variant="outlined"
+            className={style.titletextbox}
+            style={{marginLeft: '0px'}}
+            InputProps={{
+              classes: {
+                focused: style.focusedInput,
+                notchedOutline: style.whiteOutline,
+                input: style.whitePlaceholder,
+              },
+              style: {
+                color: 'white', 
+              },
+              placeholder: 'Enter Available Seats',
+            }}
+          />
+        </th>
+
+
+
+
+        <th>
+          
+        </th>
+        
+      </tr>
+      
+    </thead>
+    
+  </table>
+</div>
 
       <div>
       <div className={style.gridHeader}>
