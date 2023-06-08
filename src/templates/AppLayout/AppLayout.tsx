@@ -115,6 +115,23 @@ const AppLayout: React.FC<{
      </aside>
 
 
+
+     <aside className={'links'}>
+        <NavLink
+           style={{ textDecoration: 'none' }}
+           className={({ isActive }) => (isActive ? 'layout-row is-active' : 'layout-row')}
+           to={APP_ROUTES.MY_PROFILE}
+         >
+           <div
+             className={`navBarContent navLink layout-row`}
+           >
+             <span>User Profile</span>
+           </div>
+         </NavLink>
+     </aside>
+    
+
+
           </aside>
           
         </aside>

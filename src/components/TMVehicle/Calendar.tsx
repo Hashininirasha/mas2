@@ -5,19 +5,21 @@ function Datapicker() {
   console.log("date", date);
 
   return (
-    <div className='main'>
+    <div style={{ display: 'flex', alignItems: 'left' }}>
       <input
-        type="date"
-        onChange={e => setDate(e.target.value)}
-        style={{
-          paddingLeft: "0px",
-          backgroundColor: '#282828',
-          color: '#6b6b6b',
-          width: "520px",
-          outline: 'none', 
-          border: 'none', 
-        }}
-      />
+  type="date"
+  onChange={e => setDate(e.target.value)}
+  style={{
+    textAlign: "left",
+    paddingLeft: "0px",
+    backgroundColor: '#282828',
+    color: '#6b6b6b',
+    width: "500%",
+    outline: 'none', // Add this line to remove the outline
+    border: 'none', // Add this line to remove the borders
+  }}
+/>
+
       <style>{`
         input[type="date"]::-webkit-calendar-picker-indicator {
           filter: invert(1);

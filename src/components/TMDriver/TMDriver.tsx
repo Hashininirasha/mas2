@@ -7,64 +7,66 @@ import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import DataTableassign from './TableAssignVehi'
 import Recincident from './TableRecinci'
 import TablePrevious from './TablePrevious'
+import Datapicker from '../TMVehicle/Calendar';
+
 
 
 const TMDriver = () => {
-  const [showAlert, setShowAlert] = useState(false);
-  const [value, setValue] = useState('');
+  // const [showAlert, setShowAlert] = useState(false);
+  // const [value, setValue] = useState('');
 
-  const [isPlaceholderVisible1, setIsPlaceholderVisible1] = React.useState(true);
+  const [trans_com_isPlaceholderVisible, trans_com_setIsPlaceholderVisible] = React.useState(true);
 
-  const handleSelectClick1 = () => {
-    setIsPlaceholderVisible1(false);
+  const trans_com_handleSelectClick = () => {
+    trans_com_setIsPlaceholderVisible(false);
   };
 
-  const [isPlaceholderVisible2, setIsPlaceholderVisible2] = React.useState(true);
+  const [plant_isPlaceholderVisible, plant_setIsPlaceholderVisible] = React.useState(true);
 
-  const handleSelectClick2 = () => {
-    setIsPlaceholderVisible2(false);
+  const plant_handleSelectClick = () => {
+    plant_setIsPlaceholderVisible(false);
   };
 
-  const [isPlaceholderVisible3, setIsPlaceholderVisible3] = React.useState(true);
+  const [vehiType_isPlaceholderVisible, vehiType_setIsPlaceholderVisible] = React.useState(true);
 
-  const handleSelectClick3 = () => {
-    setIsPlaceholderVisible3(false);
+  const vehiType_handleSelectClick = () => {
+    vehiType_setIsPlaceholderVisible(false);
   };
   
-  const [isPlaceholderVisible4, setIsPlaceholderVisible4] = React.useState(true);
+  const [vehiNum_isPlaceholderVisible, vehiNum_setIsPlaceholderVisible] = React.useState(true);
 
-  const handleSelectClick4 = () => {
-    setIsPlaceholderVisible4(false);
+  const vehiNum_handleSelectClick = () => {
+    vehiNum_setIsPlaceholderVisible(false);
   };
-  const [isPlaceholderVisible5, setIsPlaceholderVisible5] = React.useState(true);
+  const [vehiNumIncident_isPlaceholderVisible, vehiNumIncident_setIsPlaceholderVisible] = React.useState(true);
 
-  const handleSelectClick5 = () => {
-    setIsPlaceholderVisible5(false);
+  const vehiNumIncident_handleSelectClick = () => {
+    vehiNumIncident_setIsPlaceholderVisible(false);
   };
-  const [selectedOption1, setSelectedOption1] = useState('');
-  const [selectedOption2, setSelectedOption2] = useState('');
-  const [selectedOption3, setSelectedOption3] = useState('');
-  const [selectedOption4, setSelectedOption4] = useState('');
-  const [selectedOption5, setSelectedOption5] = useState('');
+  const [trans_com_selectedOption, trans_com_setSelectedOption] = useState('');
+  const [plant_selectedOption, plant_setSelectedOption] = useState('');
+  const [vehiType_selectedOption, vehiType_setSelectedOption] = useState('');
+  const [vehiNum_selectedOption, vehiNum_setSelectedOption] = useState('');
+  const [vehiNumIncident_selectedOption, vehiNumIncident_setSelectedOption] = useState('');
 
-  const handleChangeOption1 = (event: any) => {
-    setSelectedOption1(event.target.value);
-  };
-
-  const handleChangeOption2 = (event: any) => {
-    setSelectedOption2(event.target.value);
+  const trans_com_handleChangeOption = (event: any) => {
+    trans_com_setSelectedOption(event.target.value);
   };
 
-  const handleChangeOption3 = (event: any) => {
-    setSelectedOption3(event.target.value);
+  const plant_handleChangeOption = (event: any) => {
+    plant_setSelectedOption(event.target.value);
   };
 
-  const handleChangeOption4 = (event: any) => {
-    setSelectedOption4(event.target.value);
+  const vehiType_handleChangeOption = (event: any) => {
+    vehiType_setSelectedOption(event.target.value);
   };
 
-  const handleChangeOption5 = (event: any) => {
-    setSelectedOption5(event.target.value);
+  const vehiNum_handleChangeOption = (event: any) => {
+    vehiNum_setSelectedOption(event.target.value);
+  };
+
+  const vehiNumIncident_handleChangeOption = (event: any) => {
+    vehiNumIncident_setSelectedOption(event.target.value);
   };
   const navigate = useNavigate()
 
@@ -129,7 +131,7 @@ const TMDriver = () => {
      
           <h4 className={style.headingtitlevehi} style={{paddingLeft: '5px'}}>Driver Name</h4>
           <TextField
-            id="outlined-basic"
+            id="driverName"
             variant="outlined"
             style={{ width: '96%' }}
             InputProps={{
@@ -153,7 +155,7 @@ const TMDriver = () => {
           
 
 <FormControl
-  style={{ width: '95%', paddingLeft: '5px' }}
+  style={{ width: '98%', paddingLeft: '5px' }}
   sx={{
     '& .MuiSelect-select': {
       color: 'white',
@@ -176,19 +178,19 @@ const TMDriver = () => {
   }}
 >
   <InputLabel
-    id="option1-label"
+    id="transport_Company"
     className={style.selectPlaceholder}
-    shrink={!isPlaceholderVisible1}
-    style={{ width: '95%' }}
+    shrink={!trans_com_isPlaceholderVisible}
+    style={{ width: '98%' }}
   >
-    {isPlaceholderVisible1 ? 'Select Transport Comapny' : ''}
+    {trans_com_isPlaceholderVisible ? 'Select Transport Comapny' : ''}
   </InputLabel>
   <Select
-    labelId="option1-label"
-    id="option1"
-    value={selectedOption1}
-    onChange={handleChangeOption1}
-    onClick={handleSelectClick1}
+    labelId="transport_Company"
+    id="transport_Company"
+    value={trans_com_selectedOption}
+    onChange={trans_com_handleChangeOption}
+    onClick={trans_com_handleSelectClick}
     
   >
     <MenuItem value="option1Value1">Option 1 Value 1</MenuItem>
@@ -211,7 +213,7 @@ const TMDriver = () => {
           <h4 className={style.headingtitlevehi} style={{paddingLeft: '5px'}}>Driver NIC Number</h4>
           
           <TextField
-            id="outlined-basic"
+            id="driverNIC-basic"
             variant="outlined"
             style={{ width: '96%' }}
             InputProps={{
@@ -233,9 +235,9 @@ const TMDriver = () => {
      
           <h4 className={style.headingtitlevehi} style={{paddingLeft: '5px'}}>Driver License Number</h4>
           <TextField
-            id="outlined-basic"
+            id="driverLicense-basic"
             variant="outlined"
-            style={{ width: '96%' }}
+            style={{ width: '97%' }}
             InputProps={{
               classes: {
                 focused: style.focusedInput,
@@ -291,19 +293,19 @@ const TMDriver = () => {
   }}
 >
   <InputLabel
-    id="option1-label"
+    id="plant-label"
     className={style.selectPlaceholder}
-    shrink={!isPlaceholderVisible2}
+    shrink={!plant_isPlaceholderVisible}
     style={{ width: '98%', paddingLeft: '5px'}}
   >
-    {isPlaceholderVisible2 ? 'Select Plant' : ''}
+    {plant_isPlaceholderVisible ? 'Select Plant' : ''}
   </InputLabel>
   <Select
-    labelId="option1-label"
-    id="option1"
-    value={selectedOption2}
-    onChange={handleChangeOption2}
-    onClick={handleSelectClick2}
+    labelId="palnt-label"
+    id="plant"
+    value={plant_selectedOption}
+    onChange={plant_handleChangeOption}
+    onClick={plant_handleSelectClick}
 
   >
     <MenuItem value="option1Value1">Option 1 Value 1</MenuItem>
@@ -343,20 +345,20 @@ const TMDriver = () => {
   }}
 >
   <InputLabel
-    id="option1-label"
+    id="vehiType-label"
     className={style.selectPlaceholder}
-    shrink={!isPlaceholderVisible3}
+    shrink={!vehiType_isPlaceholderVisible}
     style={{ color: 'white', paddingLeft: '10px' }}
     
   >
-    {isPlaceholderVisible3 ? 'Select Vehicle Type' : ''}
+    {vehiType_isPlaceholderVisible ? 'Select Vehicle Type' : ''}
   </InputLabel>
   <Select
-    labelId="option1-label"
-    id="option1"
-    value={selectedOption3}
-    onChange={handleChangeOption3}
-    onClick={handleSelectClick3}
+    labelId="vehiType-label"
+    id="vehiType"
+    value={vehiType_selectedOption}
+    onChange={vehiType_handleChangeOption}
+    onClick={vehiType_handleSelectClick}
     style={{ width: '100%'}}
   >
     <MenuItem value="option1Value1">Option 1 Value 1</MenuItem>
@@ -395,19 +397,19 @@ const TMDriver = () => {
   }}
 >
   <InputLabel
-    id="option1-label"
+    id="vehiNum-label"
     className={style.selectPlaceholder}
-    shrink={!isPlaceholderVisible4}
-    style={{ width: '98%', paddingLeft: '15px'}}
+    shrink={!vehiNum_isPlaceholderVisible}
+    style={{ width: '98%', paddingLeft: '5px'}}
   >
-    {isPlaceholderVisible4 ? 'Select Vehicle Number' : ''}
+    {vehiNum_isPlaceholderVisible ? 'Select Vehicle Number' : ''}
   </InputLabel>
   <Select
-    labelId="option1-label"
-    id="option1"
-    value={selectedOption4}
-    onChange={handleChangeOption4}
-    onClick={handleSelectClick4}
+    labelId="vehiNum-label"
+    id="vehiNum"
+    value={vehiNum_selectedOption}
+    onChange={vehiNum_handleChangeOption}
+    onClick={vehiNum_handleSelectClick}
   
   >
     <MenuItem value="option1Value1">Option 1 Value 1</MenuItem>
@@ -460,7 +462,7 @@ const TMDriver = () => {
 
           placeholder="Enter Incident"
           multiline
-          style={{ width: '99%', paddingLeft: '1px' }}
+          style={{ width: '98%', paddingLeft: '1px' }}
           InputProps={{
             classes: {
               focused: style.focusedInput,
@@ -486,7 +488,8 @@ const TMDriver = () => {
           <TextField
   id="date"
   variant="outlined"
-  style={{ width: '98%' }}
+  
+  style={{ width: '97%' }}
   InputProps={{
     classes: {
       focused: style.focusedInput,
@@ -498,11 +501,13 @@ const TMDriver = () => {
     },
     endAdornment: (
       <IconButton
-        style={{ color: 'white' }}
+        style={{ color: 'white'}}
         aria-label="calendar"
         component="span"
-      >
-        <CalendarMonthIcon />
+      ><Datapicker/>
+      <div style={{paddingRight: "55px"}}>
+      
+      </div>
       </IconButton>
     ),
   }}
@@ -514,9 +519,9 @@ const TMDriver = () => {
       
           <h4 className={style.headingtitlevehi} style={{paddingLeft: '10px'}}>Outcome</h4>
           <TextField
-            id="outlined-basic"
+            id="outcome-basic"
             variant="outlined"
-            style={{ width: '97%' }}
+            style={{ width: '96%' }}
             InputProps={{
               classes: {
                 focused: style.focusedInput,
@@ -562,19 +567,19 @@ const TMDriver = () => {
   }}
 >
   <InputLabel
-    id="option1-label"
+    id="vehiNum-label"
     className={style.selectPlaceholder}
-    shrink={!isPlaceholderVisible5}
+    shrink={!vehiNumIncident_isPlaceholderVisible}
     style={{paddingLeft: '5px'}}
   >
-    {isPlaceholderVisible5 ? 'Select Vehicle Number' : ''}
+    {vehiNumIncident_isPlaceholderVisible ? 'Select Vehicle Number' : ''}
   </InputLabel>
   <Select
-    labelId="option1-label"
-    id="option1"
-    value={selectedOption5}
-    onChange={handleChangeOption5}
-    onClick={handleSelectClick5}
+    labelId="vehiNum-label"
+    id="vehiNum"
+    value={vehiNumIncident_selectedOption}
+    onChange={vehiNumIncident_handleChangeOption}
+    onClick={vehiNumIncident_handleSelectClick}
 
   >
     <MenuItem value="option1Value1">Option 1 Value 1</MenuItem>

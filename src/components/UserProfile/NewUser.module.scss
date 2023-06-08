@@ -1,0 +1,112 @@
+@import "../../assets//theme/constants.scss";
+
+.gridContainer {
+    margin: 45px;
+    border-radius: 5px;
+    background-color: $bgColorSidebar;
+    padding-bottom: 40px;
+
+    .gridHeader {
+        display: flex;
+        padding-left: 20px;
+        align-items: center;
+        padding: 5px;
+   
+
+        .gridTitle {
+            color: $white;
+        }
+
+        .sendRequestButton{
+            font-weight: normal !important;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: $primary;
+            padding-left: 10px;
+            
+        }
+
+        .gridActionButton {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: $bgColor;
+            padding-left: 10px;
+  
+            .icon {
+             
+                font-size: 20px;
+                padding-left: 5px;
+                
+            }
+
+            .text{
+                text-transform: none;
+            }
+        }
+    }
+
+    .grid::-webkit-scrollbar-track {
+        background-color: $bgColorSidebar !important;
+    }
+    .grid::-webkit-scrollbar-thumb {
+        background-color: rgb(146, 146, 146) !important;
+    }
+}
+   
+.outline{
+    padding: 20px;
+}
+
+.personal{
+    padding-top: 15px;
+
+    .headingtitlevehi{  
+
+    }
+
+    .txtbox {
+    
+        width: 90%;
+        outline: none !important;
+        background-color: $bgColor !important;
+        border-radius: 5px;
+        margin-top: 4px;
+        
+      }
+
+      .txtboxlarge{
+        width: 95%;
+        outline: none !important;
+        background-color: $bgColor !important;
+        border-radius: 5px;
+
+
+      }
+    
+      
+}
+
+.contact{
+    padding-top: 130px;
+
+    .txtbox {
+    
+        width: 90%;
+        outline: none !important;
+        background-color: $bgColor !important;
+        border-radius: 5px;
+        margin-top: 4px;
+        
+      }
+
+      .txtboxlarge{
+        width: 95%;
+        outline: none !important;
+        background-color: $bgColor !important;
+        border-radius: 5px;
+
+
+      }
+}

@@ -6,6 +6,8 @@ export enum APP_ROUTES {
     GU_MANAGE_TEMPLATES = '/manage-templates',
     NEW_REQUEST = '/reqest-creation/new-request',
 
+  
+
     // LINE MANAGER
     LM_DASHBOARD = '/dashboard',
     LM_REQUEST_APPROVAL = '/request-approval',
@@ -19,6 +21,10 @@ export enum APP_ROUTES {
     TM_VEHICLE_ALLOCATION = '/vehicle-allocation',
 
     // SBU
-    SBU_COMPANY_ADD = '/new-company'
+    SBU_COMPANY_ADD = '/new-company',
+
+      //Profile
+      MY_PROFILE = '/user-profile',
+    
 
 }

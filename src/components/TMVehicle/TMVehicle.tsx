@@ -12,42 +12,42 @@ import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 
 
 const TMVehicle = () => {
-  const [showAlert, setShowAlert] = useState(false);
-  const [value, setValue] = useState('');
+  // const [showAlert, setShowAlert] = useState(false);
+  // const [value, setValue] = useState('');
 
-  const [isPlaceholderVisible1, setIsPlaceholderVisible1] = React.useState(true);
+  const [com_name_isPlaceholderVisible, com_name_setIsPlaceholderVisible] = React.useState(true);
 
-  const handleSelectClick1 = () => {
-    setIsPlaceholderVisible1(false);
+  const com_name_handleSelectClick= () => {
+    com_name_setIsPlaceholderVisible(false);
   };
 
-  const [isPlaceholderVisible2, setIsPlaceholderVisible2] = React.useState(true);
+  const [vehitype_isPlaceholderVisible, vehitype_setIsPlaceholderVisible] = React.useState(true);
 
-  const handleSelectClick2 = () => {
-    setIsPlaceholderVisible2(false);
+  const vehitype_handleSelectClick = () => {
+    vehitype_setIsPlaceholderVisible(false);
   };
 
-  const [isPlaceholderVisible3, setIsPlaceholderVisible3] = React.useState(true);
+  const [plant_isPlaceholderVisible, plant_setIsPlaceholderVisible] = React.useState(true);
 
-  const handleSelectClick3 = () => {
-    setIsPlaceholderVisible3(false);
+  const plant_handleSelectClick = () => {
+    plant_setIsPlaceholderVisible(false);
   };
   
-  const [selectedOption1, setSelectedOption1] = useState('');
-  const [selectedOption2, setSelectedOption2] = useState('');
-  const [selectedOption3, setSelectedOption3] = useState('');
+  const [com_name_selectedOption, com_name_setSelectedOption] = useState('');
+  const [vehitype_selectedOption, vehitype_setSelectedOption] = useState('');
+  const [plant_selectedOption, plant_setSelectedOption] = useState('');
 
 
-  const handleChangeOption1 = (event: any) => {
-    setSelectedOption1(event.target.value);
+  const com_name_handleChangeOption = (event: any) => {
+    com_name_setSelectedOption(event.target.value);
   };
 
-  const handleChangeOption2 = (event: any) => {
-    setSelectedOption2(event.target.value);
+  const vehitype_handleChangeOption = (event: any) => {
+    vehitype_setSelectedOption(event.target.value);
   };
 
-  const handleChangeOption3 = (event: any) => {
-    setSelectedOption3(event.target.value);
+  const plant_handleChangeOption = (event: any) => {
+    plant_setSelectedOption(event.target.value);
   };
   const navigate = useNavigate()
 
@@ -127,18 +127,18 @@ const TMVehicle = () => {
   <InputLabel
     id="company_name"
     className={style.selectPlaceholder}
-    shrink={!isPlaceholderVisible1}
+    shrink={!com_name_isPlaceholderVisible}
     style={{paddingLeft: '5px'}}
 
   >
-    {isPlaceholderVisible1 ? 'Select Company Name' : ''}
+    {com_name_isPlaceholderVisible ? 'Select Company Name' : ''}
   </InputLabel>
   <Select
-    labelId="option1-label"
-    id="option1"
-    value={selectedOption1}
-    onChange={handleChangeOption1}
-    onClick={handleSelectClick1}
+    labelId="comName-label"
+    id="comName"
+    value={com_name_selectedOption}
+    onChange={com_name_handleChangeOption}
+    onClick={com_name_handleSelectClick}
  
   >
     <MenuItem value="option1Value1">Option 1 Value 1</MenuItem>
@@ -179,7 +179,7 @@ const TMVehicle = () => {
 
           <h4 className={style.headingtitlevehi} style={{paddingLeft: '5px'}}>Vehicle Type</h4>
           <FormControl
-          style={{ width: '99%', paddingLeft: '10px' }}
+          style={{ width: '100%', paddingLeft: '10px' }}
   sx={{
     '& .MuiSelect-select': {
       color: 'white',
@@ -204,17 +204,17 @@ const TMVehicle = () => {
   <InputLabel
     id="vehicle_type"
     className={style.selectPlaceholder}
-    shrink={!isPlaceholderVisible2}
+    shrink={!vehitype_isPlaceholderVisible}
     style={{paddingLeft: '5px'}}
   >
-    {isPlaceholderVisible2 ? 'Select Vehicle Type' : ''}
+    {vehitype_isPlaceholderVisible ? 'Select Vehicle Type' : ''}
   </InputLabel>
   <Select
-    labelId="option1-label"
-    id="option1"
-    value={selectedOption2}
-    onChange={handleChangeOption2}
-    onClick={handleSelectClick2}
+    labelId="vehiType-label"
+    id="vehiType"
+    value={vehitype_selectedOption}
+    onChange={vehitype_handleChangeOption}
+    onClick={vehitype_handleSelectClick}
    
   >
     <MenuItem value="option1Value1">Option 1 Value 1</MenuItem>
@@ -252,17 +252,17 @@ const TMVehicle = () => {
   <InputLabel
     id="plant"
     className={style.selectPlaceholder}
-    shrink={!isPlaceholderVisible3}
+    shrink={!plant_isPlaceholderVisible}
     style={{ width: '98%', paddingLeft: '15px'}}
   >
-    {isPlaceholderVisible3 ? 'Select Plant' : ''}
+    {plant_isPlaceholderVisible ? 'Select Plant' : ''}
   </InputLabel>
   <Select
-    labelId="option1-label"
-    id="option1"
-    value={selectedOption3}
-    onChange={handleChangeOption3}
-    onClick={handleSelectClick3}
+    labelId="plant-label"
+    id="plant"
+    value={plant_selectedOption}
+    onChange={plant_handleChangeOption}
+    onClick={plant_handleSelectClick}
     
   >
     <MenuItem value="option1Value1">Option 1 Value 1</MenuItem>
@@ -336,6 +336,7 @@ const TMVehicle = () => {
           <TextField
   id="date"
   variant="outlined"
+
   style={{ width: '98%' }}
   InputProps={{
     classes: {
@@ -348,11 +349,18 @@ const TMVehicle = () => {
     },
     endAdornment: (
       <IconButton
-        style={{ color: 'white' }}
+        style={{ color: 'white'}}
         aria-label="calendar"
         component="span"
       >
-        <CalendarMonthIcon />
+        
+        
+        <Datapicker/>
+
+        
+      <div style={{paddingRight: "155px"}}>
+      
+      </div>
       </IconButton>
     ),
   }}

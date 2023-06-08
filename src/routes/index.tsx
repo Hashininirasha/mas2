@@ -7,6 +7,7 @@ import NewRequest from "../pages/TrasportRequest/NewRequest"
 import VehicleRequest from '../pages/TMVehicle/VehicleRequest'
 import DriverRequest from '../pages/TMDriver/DriverRequest'
 import AddCompany from '../pages/NewCompany/NewCompany'
+import UserProfile from '../pages/UserProfile/UserProfile'
 
 const AppRoutes = () => {
   return (
@@ -61,6 +62,16 @@ const AppRoutes = () => {
           element={<AddCompany/>}
         >
         </Route>
+
+
+           
+        <Route
+          path={APP_ROUTES.MY_PROFILE}
+          element={<UserProfile/>}
+        >
+        </Route>
+
+
 
 
       </Routes>
