@@ -127,7 +127,9 @@ const NewCompnay = () => {
           />
 </FormControl>
 
+</Grid>
 
+<Grid item md={6} xs={6} sm={12}>
 
 </Grid>
 
