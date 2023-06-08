@@ -23,6 +23,7 @@ function Datapicker() {
       <style>{`
         input[type="date"]::-webkit-calendar-picker-indicator {
           filter: invert(1);
+         
           width: 24px;
           height: 24px;
         }

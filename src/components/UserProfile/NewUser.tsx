@@ -106,51 +106,29 @@ const NewUser = () => {
     <h3>Personal</h3>
   
 
-         <Grid container spacing={2}>
+    <Grid container spacing={2}>
 
 <Grid item xs={6}>
 
 <h4 className={style.headingtitlevehi}>First Name</h4>
-<TextField
-  id="firstname"
-  variant="outlined"
-  className={style.txtbox}
-  InputProps={{
-    classes: {
-      focused: style.focusedInput,
-      notchedOutline: style.whiteOutline,
-      input: style.whitePlaceholder,
-    },
-    style: {
-      color: 'white',
-    },
-    placeholder: 'First Name',
-  }}
-/>
-
+<InputLabel
+  htmlFor="contact-mobile"
+  className={style.labelsmall}
+>
+  <p>First Name</p>
+</InputLabel>
 
 </Grid>
 
 <Grid item xs={6}>
 
 <h4 className={style.headingtitlevehi}>Last Name</h4>
-          <TextField
-            id="firstname"
-            variant="outlined"
-            className={style.txtbox}
-           
-            InputProps={{
-              classes: {
-                focused: style.focusedInput,
-                notchedOutline: style.whiteOutline,
-                input: style.whitePlaceholder,
-              },
-              style: {
-                color: 'white', 
-              },
-              placeholder: 'Last Name',
-            }}
-          />
+<InputLabel
+  htmlFor="LastName"
+  className={style.labelsmall}
+>
+  <p>Last Name</p>
+</InputLabel>
 
 </Grid>
 
@@ -164,23 +142,14 @@ const NewUser = () => {
 <Grid item xs={12}>
 
 <h4 className={style.headingtitlevehi} >SBU</h4>
-          <TextField
-            id="SBU"
-            variant="outlined"
-            className={style.txtboxlarge}
-           
-            InputProps={{
-              classes: {
-                focused: style.focusedInput,
-                notchedOutline: style.whiteOutline,
-                input: style.whitePlaceholder,
-              },
-              style: {
-                color: 'white', 
-              },
-              placeholder: 'SBU',
-            }}
-          />
+<InputLabel
+  htmlFor="sbu"
+  className={style.label}
+>
+  <p>SBU</p>
+</InputLabel>
+
+
 
     </Grid>
     </Grid>
@@ -191,23 +160,14 @@ const NewUser = () => {
 <Grid item xs={12}>
 
 <h4 className={style.headingtitlevehi} >Plant</h4>
-          <TextField
-            id="SBU"
-            variant="outlined"
-            className={style.txtboxlarge}
-           
-            InputProps={{
-              classes: {
-                focused: style.focusedInput,
-                notchedOutline: style.whiteOutline,
-                input: style.whitePlaceholder,
-              },
-              style: {
-                color: 'white', 
-              },
-              placeholder: 'Plant',
-            }}
-          />
+<InputLabel
+  htmlFor="plant"
+  className={style.label}
+>
+  <p>Palnt</p>
+</InputLabel>
+
+
 
     </Grid>
     </Grid>
@@ -217,23 +177,13 @@ const NewUser = () => {
 <Grid item xs={12}>
 
 <h4 className={style.headingtitlevehi} >Department</h4>
-          <TextField
-            id="SBU"
-            variant="outlined"
-            className={style.txtboxlarge}
-           
-            InputProps={{
-              classes: {
-                focused: style.focusedInput,
-                notchedOutline: style.whiteOutline,
-                input: style.whitePlaceholder,
-              },
-              style: {
-                color: 'white', 
-              },
-              placeholder: 'Department',
-            }}
-          />
+<InputLabel
+  htmlFor="department"
+  className={style.label}
+>
+  <p>Department</p>
+</InputLabel>
+
 
     </Grid>
     </Grid>
@@ -254,46 +204,24 @@ const NewUser = () => {
 <Grid item xs={6}>
 
 <h4 className={style.headingtitlevehi}>Contact-Mobile</h4>
-<TextField
-id="firstname"
-variant="outlined"
-className={style.txtbox}
-InputProps={{
-classes: {
-  focused: style.focusedInput,
-  notchedOutline: style.whiteOutline,
-  input: style.whitePlaceholder,
-},
-style: {
-  color: 'white',
-},
-placeholder: '0712565658',
-}}
-/>
-
+<InputLabel
+  htmlFor="contact-mobile"
+  className={style.labelsmall}
+>
+  <p>Contact-Mobile</p>
+</InputLabel>
 
 </Grid>
 
 <Grid item xs={6}>
 
 <h4 className={style.headingtitlevehi}>Contact-Home</h4>
-      <TextField
-        id="firstname"
-        variant="outlined"
-        className={style.txtbox}
-       
-        InputProps={{
-          classes: {
-            focused: style.focusedInput,
-            notchedOutline: style.whiteOutline,
-            input: style.whitePlaceholder,
-          },
-          style: {
-            color: 'white', 
-          },
-          placeholder: '0456699852',
-        }}
-      />
+<InputLabel
+  htmlFor="contact-home"
+  className={style.labelsmall}
+>
+  <p>Contact-Home</p>
+</InputLabel>
 
 </Grid>
 
@@ -307,23 +235,13 @@ placeholder: '0712565658',
 <Grid item xs={12}>
 
 <h4 className={style.headingtitlevehi} >Email</h4>
-      <TextField
-        id="SBU"
-        variant="outlined"
-        className={style.txtboxlarge}
-       
-        InputProps={{
-          classes: {
-            focused: style.focusedInput,
-            notchedOutline: style.whiteOutline,
-            input: style.whitePlaceholder,
-          },
-          style: {
-            color: 'white', 
-          },
-          placeholder: 'udayanag@mas.com',
-        }}
-      />
+<InputLabel
+  htmlFor="email"
+  className={style.label}
+>
+  <p>Email</p>
+</InputLabel>
+
 
 </Grid>
 </Grid>
@@ -334,15 +252,33 @@ placeholder: '0712565658',
 <Grid item xs={12}>
 
 <h4 className={style.headingtitlevehi} >Address</h4>
-     <label htmlFor="address" className={style.txtboxlarge} style={{ width: '100%' }}>
-  No.45/1B, Galle Rd, Ratmalana
-</label>
+<InputLabel
+  htmlFor="address"
+  className={style.label}
+>
+  <p>Address</p>
+</InputLabel>
 
 
 </Grid>
 </Grid>
 
+<Grid container spacing={2}>
 
+<Grid item xs={12}>
+
+<h4 className={style.headingtitlevehi} >Department</h4>
+<InputLabel
+  htmlFor="Department"
+  className={style.label}
+>
+  <p>Department</p>
+</InputLabel>
+
+
+
+</Grid>
+</Grid>
 
 </div>
         </Grid>

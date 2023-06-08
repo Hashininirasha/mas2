@@ -66,6 +66,30 @@
 
     }
 
+    .labelsmall{
+        color: $gray;
+        width: 92%;
+        height: 50%;
+        background-color: $bgColor;
+        padding-bottom: 5px;
+        padding-left: 15px;
+        border-radius: 5px;
+        border: 1px solid $bgColor;
+    }
+
+
+    .label{
+        color: $gray;
+        width: 96%;
+        height: 50%;
+        background-color: $bgColor;
+        padding-bottom: 5px;
+        padding-left: 15px;
+        border-radius: 5px;
+        border: 1px solid $bgColor;
+    }
+
+
     .txtbox {
     
         width: 90%;
@@ -90,6 +114,31 @@
 
 .contact{
     padding-top: 130px;
+
+
+    .labelsmall{
+        color: $gray;
+        width: 92%;
+        height: 50%;
+        background-color: $bgColor;
+        padding-bottom: 5px;
+        padding-left: 15px;
+        border-radius: 5px;
+        border: 1px solid $bgColor;
+    }
+
+
+    .label{
+        color: $gray;
+        width: 96%;
+        height: 50%;
+        background-color: $bgColor;
+        padding-bottom: 5px;
+        padding-left: 15px;
+        border-radius: 5px;
+        border: 1px solid $bgColor;
+    }
+
 
     .txtbox {
     
