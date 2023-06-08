@@ -7,6 +7,8 @@ import { useNavigate } from 'react-router-dom';
 import { APP_ROUTES } from '../../utilities/constants/routes.constants';
 import DataTable from '../TMVehicle/Table'
 import Datapicker from './Calendar'
+import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
+
 
 
 const TMVehicle = () => {
@@ -79,11 +81,8 @@ const TMVehicle = () => {
       noValidate
       autoComplete="off"
     >
-      <div> 
-
-
-    </div>
-
+      <div>  
+         </div>
     <Box
       component="form"
       sx={{
@@ -97,18 +96,9 @@ const TMVehicle = () => {
       autoComplete="off"
     >
       <div> 
-    
-    
-    </div>
-
-
-
-    
+    </div>   
     <Grid container spacing={2}>
-
 <Grid item md={6} xs={6} sm={12}>
-
-
           <h4 className={style.headingtitlevehi} style={{paddingLeft: '10px'}}>Company Name</h4>
           <FormControl
           style={{ width: '100%', paddingLeft: '10px' }}
@@ -158,7 +148,6 @@ const TMVehicle = () => {
 </FormControl>
      
 </Grid>
-
 <Grid item md={6} xs={6} sm={12}>
           <h4 className={style.headingtitlevehi} style={{paddingLeft: '10px'}}>Vehicle Number</h4>
           
@@ -186,7 +175,6 @@ const TMVehicle = () => {
 
 
 <Grid container spacing={2}>
-
 <Grid item md={6} xs={6} sm={12}>
 
           <h4 className={style.headingtitlevehi} style={{paddingLeft: '5px'}}>Vehicle Type</h4>
@@ -236,10 +224,7 @@ const TMVehicle = () => {
 </FormControl>
 
 </Grid>
-
 <Grid item md={6} xs={6} sm={12}>
-
-
           <h4 className={style.headingtitlevehi}  style={{ paddingLeft: '15px' }}>Plant</h4>
           <FormControl
   className={style.titletextboxdropdown} style={{ width: '98%', paddingLeft: '15px' }}
@@ -284,22 +269,17 @@ const TMVehicle = () => {
     <MenuItem value="option1Value2">Option 1 Value 2</MenuItem>
     <MenuItem value="option1Value3">Option 1 Value 3</MenuItem>
   </Select>
-</FormControl>
-      
-        
+</FormControl>       
 </Grid>
 </Grid>
       
    
 <Grid container spacing={2}>
-
 <Grid item md={6} xs={6} sm={12}>
 
 <h4 style={{paddingLeft: '5px'}}>Available Seats</h4>
 
-<FormControl className={style.styleright} >
-
-    
+<FormControl className={style.styleright} >   
           <TextField
             id="Seats"
             variant="outlined"
@@ -322,11 +302,7 @@ const TMVehicle = () => {
 
 </Grid>
 </Grid>
-
-
-
-
-      <div>
+     <div>
       <div className={style.gridHeader}>
        <h3>Incident</h3>
        <br></br>
@@ -372,17 +348,15 @@ const TMVehicle = () => {
     },
     endAdornment: (
       <IconButton
-        style={{ color: 'white'}}
+        style={{ color: 'white' }}
         aria-label="calendar"
         component="span"
-      ><Datapicker/>
-      <div style={{paddingRight: "55px"}}>
-      
-      </div>
+      >
+        <CalendarMonthIcon />
       </IconButton>
     ),
   }}
-  placeholder="        dd/mm/yyyy"
+  placeholder="dd/mm/yyyy"
 />
 
 </Grid>
@@ -415,15 +389,12 @@ const TMVehicle = () => {
 
   <Grid container spacing={2}>
   <Grid item md={3} xs={3} sm={12}>
-    {/* Content for the first grid item */}
   </Grid>
 
   <Grid item md={3} xs={3} sm={12}>
-    {/* Content for the second grid item */}
   </Grid>
 
   <Grid item md={3} xs={3} sm={12}>
-    {/* Content for the second grid item */}
   </Grid>
   <Grid item md={3} xs={3} sm={12}>
     <div style={{ width: '100%'}}>
@@ -441,15 +412,13 @@ const TMVehicle = () => {
 <br></br>
 <Grid container spacing={2}>
   <Grid item md={3} xs={3} sm={12}>
-    {/* Content for the first grid item */}
   </Grid>
 
   <Grid item md={3} xs={3} sm={12}>
-    {/* Content for the second grid item */}
   </Grid>
 
   <Grid item md={3} xs={3} sm={12}>
-    {/* Content for the second grid item */}
+   
   </Grid>
   <Grid item md={3} xs={3} sm={12}>
     <div style={{ width: '100%'}}>
@@ -457,22 +426,12 @@ const TMVehicle = () => {
             <Button className={style.btntemp2}>Use</Button>
             
           </div>
-
-          </Grid>
 </Grid>
-          
-
-
-    </Box>
-  
+</Grid>
 </Box>
-
-
+</Box>
 </section>
-
-
-    
-       </div>
+ </div>
 
      );
    };

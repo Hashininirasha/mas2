@@ -131,9 +131,7 @@ const NewCompnay = () => {
 
 <Grid item md={6} xs={6} sm={12}>
 
-</Grid>
 
-<Grid item md={6} xs={6} sm={12}>
 <h4 className={style.headingtitlevehi} style={{paddingLeft: "5px"}}>Registered Number</h4>
 <FormControl style={{ width: '100%' }}>
 

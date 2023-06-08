@@ -153,7 +153,7 @@ const TMDriver = () => {
           
 
 <FormControl
-  className={style.titletextboxdropdown}
+  style={{ width: '95%', paddingLeft: '5px' }}
   sx={{
     '& .MuiSelect-select': {
       color: 'white',
@@ -179,7 +179,7 @@ const TMDriver = () => {
     id="option1-label"
     className={style.selectPlaceholder}
     shrink={!isPlaceholderVisible1}
-    style={{ width: '96%' }}
+    style={{ width: '95%' }}
   >
     {isPlaceholderVisible1 ? 'Select Transport Comapny' : ''}
   </InputLabel>
@@ -425,15 +425,12 @@ const TMDriver = () => {
 
   <Grid container spacing={2}>
   <Grid item md={3} xs={3} sm={12}>
-    {/* Content for the first grid item */}
   </Grid>
 
   <Grid item md={3} xs={3} sm={12}>
-    {/* Content for the second grid item */}
   </Grid>
 
   <Grid item md={3} xs={3} sm={12}>
-    {/* Content for the second grid item */}
   </Grid>
   <Grid item md={3} xs={3} sm={12}>
 <div style={{ width: '100%'}}>
@@ -451,15 +448,11 @@ const TMDriver = () => {
          
           <div>
       <div className={style.gridHeader}>
-       <h3>Incidents</h3>
-       
-   
-       
+       <h3>Incidents</h3>      
       </div>
 
 
-      <Grid container spacing={2}>
-
+<Grid container spacing={2}>
 <Grid item md={12} xs={12} sm={12}>
       <h4 className={style.headingtitlevehi} style={{paddingLeft: '5px'}}>Incident</h4>
       <TextField
@@ -479,9 +472,7 @@ const TMDriver = () => {
           }}
 
         />
-        </Grid>
-
-
+</Grid>
 </Grid>
 
       </div>
@@ -489,11 +480,8 @@ const TMDriver = () => {
 
          
 <Grid container spacing={2}>
-
 <Grid item md={6} xs={6} sm={12}>
-
- 
-      
+     
           <h4 className={style.headingtitlevehi} style={{paddingLeft: '5px'}}>Date</h4>
           <TextField
   id="date"
@@ -518,7 +506,7 @@ const TMDriver = () => {
       </IconButton>
     ),
   }}
-  placeholder="          dd/mm/yyyy"
+  placeholder="dd/mm/yyyy"
 />
 
 </Grid>
@@ -545,8 +533,7 @@ const TMDriver = () => {
     </Grid>
     </Grid>
 
-    <Grid container spacing={2}>
-
+<Grid container spacing={2}>
 <Grid item md={6} xs={6} sm={12}>
 
 
@@ -602,29 +589,10 @@ const TMDriver = () => {
       </Grid>
       </Grid>
 
-
-
-
-
-
-
-
-
-
-
-
 <br></br>
-
-       
  
-  
     <br></br>
     <h4 className={style.headingtitlevehi} style={{paddingLeft: '5px'}}>Recorded Incidents</h4>
-
-
- 
-  
- 
   <Recincident/> 
 <br></br>
   <hr></hr>
@@ -636,15 +604,12 @@ const TMDriver = () => {
 
   <Grid container spacing={2}>
   <Grid item md={3} xs={3} sm={12}>
-    {/* Content for the first grid item */}
   </Grid>
 
   <Grid item md={3} xs={3} sm={12}>
-    {/* Content for the second grid item */}
   </Grid>
 
   <Grid item md={3} xs={3} sm={12}>
-    {/* Content for the second grid item */}
   </Grid>
   <Grid item md={3} xs={3} sm={12}>
   <div style={{ width: '100%'}}>
@@ -656,11 +621,6 @@ const TMDriver = () => {
 
    <br></br>
        
-
-
-
-
-
     </Box>
   
 </Box>

@@ -14,8 +14,8 @@ function Datapicker() {
           backgroundColor: '#282828',
           color: '#6b6b6b',
           width: "520px",
-          outline: 'none', // Add this line to remove the outline
-          border: 'none', // Add this line to remove the borders
+          outline: 'none', 
+          border: 'none', 
         }}
       />
       <style>{`
