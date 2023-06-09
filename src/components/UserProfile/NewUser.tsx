@@ -7,57 +7,14 @@ import { useNavigate } from 'react-router-dom';
 import { APP_ROUTES } from '../../utilities/constants/routes.constants';
 import Avatar from '@mui/material/Avatar';
 
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import Divider from '@mui/material/Divider';
-import InboxIcon from '@mui/icons-material/Inbox';
-import DraftsIcon from '@mui/icons-material/Drafts';
+
 
 
 
 
 
 const NewUser = () => {
-  const [showAlert, setShowAlert] = useState(false);
-  const [value, setValue] = useState('');
-
-  const [isPlaceholderVisible1, setIsPlaceholderVisible1] = React.useState(true);
-
-  const handleSelectClick1 = () => {
-    setIsPlaceholderVisible1(false);
-  };
-
-  const [isPlaceholderVisible2, setIsPlaceholderVisible2] = React.useState(true);
-
-  const handleSelectClick2 = () => {
-    setIsPlaceholderVisible2(false);
-  };
-
-  const [isPlaceholderVisible3, setIsPlaceholderVisible3] = React.useState(true);
-
-  const handleSelectClick3 = () => {
-    setIsPlaceholderVisible3(false);
-  };
   
-  const [selectedOption1, setSelectedOption1] = useState('');
-  const [selectedOption2, setSelectedOption2] = useState('');
-  const [selectedOption3, setSelectedOption3] = useState('');
-
-
-  const handleChangeOption1 = (event: any) => {
-    setSelectedOption1(event.target.value);
-  };
-
-  const handleChangeOption2 = (event: any) => {
-    setSelectedOption2(event.target.value);
-  };
-
-  const handleChangeOption3 = (event: any) => {
-    setSelectedOption3(event.target.value);
-  };
   const navigate = useNavigate()
 
   const handleNewRequest = () => {
@@ -92,7 +49,96 @@ const NewUser = () => {
         src="/static/images/avatar/1.jpg"
         sx={{ width: 100, height: 100 }}
       />
+        <div className={style.profile}>
+
         
+
+
+    <Grid container spacing={2}>
+
+<Grid item md={10} xs={10} sm={12}>
+
+<Button className={style.buttonselect}>My Profile</Button>
+
+</Grid>
+<Grid item md={2} xs={2} sm={12}>
+  <div className={style.verticalline}>
+
+  </div>
+
+</Grid>
+</Grid>
+
+
+
+
+
+
+<Grid container spacing={2}>
+
+<Grid item md={10} xs={10} sm={12}>
+
+<Button className={style.button}>Notifications</Button>
+
+</Grid>
+<Grid item md={2} xs={2} sm={12}>
+  <div className={style.verticalline}>
+
+  </div>
+
+</Grid>
+</Grid>
+
+
+
+<Grid container spacing={2}>
+
+<Grid item md={10} xs={10} sm={12}>
+
+<Button className={style.button} style={{ textAlign: 'left' }}>Password and Security</Button>
+
+
+</Grid>
+<Grid item md={2} xs={2} sm={12}>
+  <div className={style.verticalline}>
+
+  </div>
+
+</Grid>
+</Grid>
+
+
+<Grid container spacing={2}>
+
+<Grid item md={10} xs={10} sm={12}>
+
+<Button className={style.button}>Event History</Button>
+
+</Grid>
+<Grid item md={2} xs={2} sm={12}>
+  <div className={style.verticalline}>
+
+  </div>
+
+</Grid>
+</Grid>
+
+
+<Grid container spacing={2}>
+
+<Grid item md={10} xs={10} sm={12}>
+
+
+</Grid>
+<Grid item md={2} xs={2} sm={12}>
+  <div className={style.verticalline}>
+
+  </div>
+
+</Grid>
+</Grid>
+
+</div>
     
         </Grid>
         <Grid item xs={5}>

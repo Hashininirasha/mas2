@@ -159,3 +159,32 @@
 
       }
 }
+
+.profile{
+
+    padding-top: 40px;
+
+    .buttonselect {
+        color: white;
+        cursor: pointer;
+        background-color: rgba(255, 0, 0, 0.1); /* Red color with 0.5 opacity */
+        font-size: '15px';
+       
+    }
+
+    .button {
+        color: white;
+        cursor: pointer;
+   
+      
+    }
+    
+    
+}
+
+.verticalline {
+    width: 2px;
+    height: 100px;
+    background-color: white;
+   
+  }
