@@ -1,23 +1,18 @@
+import { Style } from '@mui/icons-material';
 import React, { useState } from 'react';
+import style from './Calendar.module.scss'
+
 
 function Datapicker() {
   const [date, setDate] = useState('');
   console.log("date", date);
 
   return (
-    <div className='main'>
+    <div>
       <input
   type="date"
   onChange={e => setDate(e.target.value)}
-  style={{
-
-    paddingLeft: "0px",
-    backgroundColor: '#282828',
-    color: '#6b6b6b',
-    width: "240%",
-    outline: 'none', // Add this line to remove the outline
-    border: 'none', // Add this line to remove the borders
-  }}
+  className={style.calstyle}
 />
 
       <style>{`

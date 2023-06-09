@@ -13,7 +13,7 @@ const columns: GridColDef[] = [
     width: 220,
     renderHeader: () => <span className={styles.columnHeader}>Payment Method</span>,
     renderCell: (params: GridCellParams) => (
-      <span className={styles.cell} style={{paddingLeft: "10px"}}>{params.value as React.ReactNode}</span>
+      <span className={styles.cell}>{params.value as React.ReactNode}</span>
     ),
   },
   {
@@ -87,7 +87,7 @@ const rows = [
 
 export default function DataTable() {
   return (
-    <div className={styles.table} style={{ height: 360, width: '100%' }}>
+    <div className={styles.table}>
       <DataGrid
         rows={rows}
         columns={columns}

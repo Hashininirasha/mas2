@@ -198,7 +198,7 @@
   }
 
 
-  .btntemp2 {
+  .use {
     background-color: red !important;
     color: white !important;
     font-weight: normal;
@@ -206,14 +206,9 @@
     text-transform: none !important;
   }
   
-  .btn {
-    padding-left: 966px;
-    padding-bottom: 10px;
-    display: flex;
-    align-items: center;
-  }
   
-  .btntemp1 {
+  
+  .del {
     background-color: black !important;
     color: white !important;
     font-weight: normal;
@@ -228,7 +223,7 @@
     }
   }
 
-  .btntemp2first {
+  .add {
     background-color: $black !important;
     color: white !important;
     font-weight: normal;
@@ -244,7 +239,7 @@
     align-items: center;
   }
   
-  .btntemp1first {
+  .clear {
     background-color: $gray !important;
     color: white !important;
     font-weight: normal;
@@ -273,3 +268,57 @@
   
    
   }
+
+
+
+
+
+
+  .dropdownName{
+    text-align: left;
+    padding-left: 15px;
+  }
+  
+  .dropdownform{
+    width: 96% !important;
+    padding-left: 15px !important;
+    color: $gray !important;
+  }
+  
+  .dropdownInput{
+    padding-left: 15px !important;
+    color: $gray !important;
+  }
+  
+  .textboxtitle{
+    padding-left: 15px !important;
+  }
+  
+  .textboxinput{
+    width: 97% !important;
+    padding-left: 15px !important;
+  }
+  
+  .incident{
+    padding-left: 15px !important;
+  
+  }
+  
+  .inicidentText{
+    width: 98.5% !important;
+    padding-left: 15px !important;
+  }
+  
+  .calendarButtonicon{
+    color: $white !important;
+  }
+  
+  .recIncident{
+    padding-left: 30px;
+  }
+
+  .btn{
+    width: 100% !important;
+  }
+
+  

@@ -72,7 +72,7 @@ const columns: GridColDef[] = [
 
 export default function Recincident() {
     return (
-        <div className={styles.table} style={{ height: 370, width: '100%' }}>
+        <div className={styles.table}>
           <DataGrid
             rows={rows}
             columns={columns}

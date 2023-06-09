@@ -60,7 +60,7 @@ const rows = [
 
 export default function DataTableassign() {
   return (
-    <div className={styles.table} style={{ height: 370, width: '100%' }}>
+    <div className={styles.table}>
       <DataGrid
         rows={rows}
         columns={columns}

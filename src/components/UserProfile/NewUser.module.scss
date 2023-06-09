@@ -57,6 +57,12 @@
    
 .outline{
     padding: 20px;
+
+    .profileimg{
+        width: 100px;
+        height: 100px;
+        border: 5px solid rgba(255, 0, 0, 0.1);
+    }
 }
 
 .personal{
@@ -90,24 +96,7 @@
     }
 
 
-    .txtbox {
     
-        width: 90%;
-        outline: none !important;
-        background-color: $bgColor !important;
-        border-radius: 5px;
-        margin-top: 4px;
-        
-      }
-
-      .txtboxlarge{
-        width: 95%;
-        outline: none !important;
-        background-color: $bgColor !important;
-        border-radius: 5px;
-
-
-      }
     
       
 }
@@ -139,25 +128,6 @@
         border: 1px solid $bgColor;
     }
 
-
-    .txtbox {
-    
-        width: 90%;
-        outline: none !important;
-        background-color: $bgColor !important;
-        border-radius: 5px;
-        margin-top: 4px;
-        
-      }
-
-      .txtboxlarge{
-        width: 95%;
-        outline: none !important;
-        background-color: $bgColor !important;
-        border-radius: 5px;
-
-
-      }
 }
 
 .profile{
@@ -175,10 +145,14 @@
     .button {
         color: white;
         cursor: pointer;
-   
-      
+     
     }
     
+    .buttonSec{
+        color: white;
+        cursor: pointer; 
+        text-align: left;
+    }
     
 }
 
@@ -188,3 +162,15 @@
     background-color: white;
    
   }
+
+  .name{
+    margin-bottom: 4px;
+
+    
+  }
+
+  .designation{
+    margin-top: 0px;
+    margin-bottom: 8px;
+}
+

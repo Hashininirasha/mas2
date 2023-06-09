@@ -3,7 +3,6 @@ import AppLayout from '../../templates/AppLayout/AppLayoutChild'
 import { useDispatch, useSelector } from 'react-redux'
 import { ApplicationStateDto, RequestListDto } from '../../utilities/models'
 import { requestActions } from '../../redux/actions'
-import NewCompnay from '../../components/NewCompany/NewCompany'
 import NewUser from '../../components/UserProfile/NewUser'
 
 const UserProfile = () => {
@@ -20,7 +19,6 @@ const UserProfile = () => {
   useEffect(() => {
     setRequestList(allRequests)
     console.log("allRequests", allRequests)
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [allRequests])
 
   const getRequestList = async () => {
@@ -30,7 +28,7 @@ const UserProfile = () => {
 
   return (
     <React.Fragment>
-      <AppLayout componentTitle="NewCompany">
+      <AppLayout componentTitle="UserProfile">
      <NewUser/>
 
       </AppLayout>

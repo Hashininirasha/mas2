@@ -1,16 +1,9 @@
-import { Box, Button, FormControl, Grid, IconButton, InputLabel, MenuItem, Select, TextField, Typography } from '@mui/material'
+import { Box, Button, Grid, InputLabel,Typography } from '@mui/material'
 import React, { useState } from 'react'
 import style from './NewUser.module.scss'
-import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDownOutlined';
-import { Alert, AlertTitle } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { APP_ROUTES } from '../../utilities/constants/routes.constants';
 import Avatar from '@mui/material/Avatar';
-
-
-
-
-
 
 
 const NewUser = () => {
@@ -45,9 +38,9 @@ const NewUser = () => {
         <Grid item xs>
         
         <Avatar
-        alt="Remy Sharp"
+        alt="profile"
         src="/static/images/avatar/1.jpg"
-        sx={{ width: 100, height: 100 }}
+        className={style.profileimg}
       />
         <div className={style.profile}>
 
@@ -95,7 +88,7 @@ const NewUser = () => {
 
 <Grid item md={10} xs={10} sm={12}>
 
-<Button className={style.button} style={{ textAlign: 'left' }}>Password and Security</Button>
+<Button className={style.buttonSec}>Password and Security</Button>
 
 
 </Grid>
@@ -142,8 +135,8 @@ const NewUser = () => {
     
         </Grid>
         <Grid item xs={5}>
-        <h2 style={{ marginBottom: '4px' }}>Udayanga Bandara</h2>
-    <h4 style={{ marginTop: '0', marginBottom: '8px' }}>Marketing Manager</h4>
+        <h2 className={style.name}>Udayanga Bandara</h2>
+    <h4 className={style.designation}>Marketing Manager</h4>
      
          <h5>Your account is ready, you can apply for the trip</h5>
 
@@ -158,7 +151,7 @@ const NewUser = () => {
 
 <h4 className={style.headingtitlevehi}>First Name</h4>
 <InputLabel
-  htmlFor="contact-mobile"
+  htmlFor="firstName"
   className={style.labelsmall}
 >
   <p>First Name</p>
@@ -330,14 +323,6 @@ const NewUser = () => {
         </Grid>
       </Grid>
 
-
-
-    
-
-
-
-  
-  
 </Box>
 
 </section>

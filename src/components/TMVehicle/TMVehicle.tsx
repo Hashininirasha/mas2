@@ -1,8 +1,6 @@
 import { Box, Button, FormControl, Grid, IconButton, InputLabel, MenuItem, Select, TextField, Typography } from '@mui/material'
 import React, { useState } from 'react'
 import style from './TMVehicle.module.scss'
-import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDownOutlined';
-import { Alert, AlertTitle } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { APP_ROUTES } from '../../utilities/constants/routes.constants';
 import DataTable from '../TMVehicle/Table'
@@ -10,10 +8,7 @@ import Datapicker from './Calendar'
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 
 
-
 const TMVehicle = () => {
-  // const [showAlert, setShowAlert] = useState(false);
-  // const [value, setValue] = useState('');
 
   const [com_name_isPlaceholderVisible, com_name_setIsPlaceholderVisible] = React.useState(true);
 
@@ -69,40 +64,22 @@ const TMVehicle = () => {
           </Typography>  
         </div>
         <hr />
-        <div className={style.gridHeader}>
+        <div className={style.gridHeader}> 
           <Box sx={{ flexGrow: 1 }} />
 
         </div>
-        <Box
-      component="form"
-      sx={{
-        '& .MuiTextField-root': { m: 1, width: '25ch' },
-      }}
-      noValidate
-      autoComplete="off"
-    >
+       
       <div>  
          </div>
-    <Box
-      component="form"
-      sx={{
-        '& .MuiTextField-root': { m: 1, width: '25ch' },
-        '& fieldset': {
-          borderColor: 'white', // Set outline color to white
-        },
-        
-      }}
-      noValidate
-      autoComplete="off"
-    >
+   
       <div> 
-    </div>   
+    </div> 
+
     <Grid container spacing={2}>
 <Grid item md={6} xs={6} sm={12}>
-          <h4 className={style.headingtitlevehi} style={{paddingLeft: '10px'}}>Company Name</h4>
+          <h4 className={style.dropdownName}>Company Name</h4>
           <FormControl
-          style={{ width: '100%', paddingLeft: '10px' }}
-  className={style.titletextboxdropdown}
+        className={style.dropdownform}
   sx={{
     '& .MuiSelect-select': {
       color: 'white',
@@ -125,12 +102,11 @@ const TMVehicle = () => {
   }}
 >
   <InputLabel
+  className={style.dropdownInput}
     id="company_name"
-    className={style.selectPlaceholder}
     shrink={!com_name_isPlaceholderVisible}
-    style={{paddingLeft: '5px'}}
-
   >
+    
     {com_name_isPlaceholderVisible ? 'Select Company Name' : ''}
   </InputLabel>
   <Select
@@ -146,16 +122,17 @@ const TMVehicle = () => {
     <MenuItem value="option1Value3">Option 1 Value 3</MenuItem>
   </Select>
 </FormControl>
+
+
      
 </Grid>
 <Grid item md={6} xs={6} sm={12}>
-          <h4 className={style.headingtitlevehi} style={{paddingLeft: '10px'}}>Vehicle Number</h4>
+          <h4 className={style.textboxtitle}>Vehicle Number</h4>
           
           <TextField
             id="vehicle_number"
             variant="outlined"
-           
-            style={{ width: '97%' }}
+            className={style.textboxinput}
             InputProps={{
               classes: {
                 focused: style.focusedInput,
@@ -177,9 +154,9 @@ const TMVehicle = () => {
 <Grid container spacing={2}>
 <Grid item md={6} xs={6} sm={12}>
 
-          <h4 className={style.headingtitlevehi} style={{paddingLeft: '5px'}}>Vehicle Type</h4>
+          <h4 className={style.dropdownName}>Vehicle Type</h4>
           <FormControl
-          style={{ width: '100%', paddingLeft: '10px' }}
+           className={style.dropdownform}
   sx={{
     '& .MuiSelect-select': {
       color: 'white',
@@ -203,9 +180,9 @@ const TMVehicle = () => {
 >
   <InputLabel
     id="vehicle_type"
-    className={style.selectPlaceholder}
+    className={style.dropdownInput}
     shrink={!vehitype_isPlaceholderVisible}
-    style={{paddingLeft: '5px'}}
+    
   >
     {vehitype_isPlaceholderVisible ? 'Select Vehicle Type' : ''}
   </InputLabel>
@@ -225,9 +202,9 @@ const TMVehicle = () => {
 
 </Grid>
 <Grid item md={6} xs={6} sm={12}>
-          <h4 className={style.headingtitlevehi}  style={{ paddingLeft: '15px' }}>Plant</h4>
+          <h4 className={style.dropdownName}>Plant</h4>
           <FormControl
-  className={style.titletextboxdropdown} style={{ width: '98%', paddingLeft: '15px' }}
+     className={style.dropdownform}
   sx={{
     '& .MuiSelect-select': {
       color: 'white',
@@ -251,9 +228,9 @@ const TMVehicle = () => {
 >
   <InputLabel
     id="plant"
-    className={style.selectPlaceholder}
+    className={style.dropdownInput}
     shrink={!plant_isPlaceholderVisible}
-    style={{ width: '98%', paddingLeft: '15px'}}
+   
   >
     {plant_isPlaceholderVisible ? 'Select Plant' : ''}
   </InputLabel>
@@ -277,13 +254,13 @@ const TMVehicle = () => {
 <Grid container spacing={2}>
 <Grid item md={6} xs={6} sm={12}>
 
-<h4 style={{paddingLeft: '5px'}}>Available Seats</h4>
+<h4 className={style.textboxtitle}>Available Seats</h4>
 
-<FormControl className={style.styleright} >   
+ 
           <TextField
             id="Seats"
             variant="outlined"
-            style={{ width: '98%', paddingLeft: '1px' }}
+            className={style.textboxinput}
             InputProps={{
               classes: {
                 focused: style.focusedInput,
@@ -296,22 +273,23 @@ const TMVehicle = () => {
               placeholder: 'Enter Available Seats',
             }}
           />
-</FormControl>
+
 </Grid>
 <Grid item md={6} xs={6} sm={12}>
 
 </Grid>
 </Grid>
+
      <div>
       <div className={style.gridHeader}>
        <h3>Incident</h3>
        <br></br>
       </div>
-      <h4 className={style.headingtitlevehi} style={{paddingLeft: '5px'}}>Incident</h4>
+      <h4 className={style.incident}>Incident</h4>
       <TextField
           id="incident"
           placeholder="Enter Incident"
-          style={{ width: '98%' }}
+          className={style.inicidentText}
           multiline
         
           InputProps={{
@@ -332,12 +310,11 @@ const TMVehicle = () => {
       <Grid container spacing={2}>
 
 <Grid item md={6} xs={6} sm={12}>
-          <h4 className={style.headingtitlevehi} style={{paddingLeft: '5px'}}>Date</h4>
+          <h4 className={style.textboxtitle}>Date</h4>
           <TextField
   id="date"
   variant="outlined"
-   
-  style={{ width: '98%' }}
+  className={style.textboxinput}
   InputProps={{
     classes: {
       focused: style.focusedInput,
@@ -349,18 +326,15 @@ const TMVehicle = () => {
     },
     endAdornment: (
       <IconButton
-        style={{ color: 'white'}}
+        className={style.calendarButtonicon}
         aria-label="calendar"
         component="span"
-      >
-        
-        
+      > 
         <Datapicker/>
 
-        
-      <div style={{paddingRight: "155px"}}>
+     
       
-      </div>
+   
       </IconButton>
     ),
   }}
@@ -371,11 +345,11 @@ const TMVehicle = () => {
 
 <Grid item md={6} xs={6} sm={12}>
     
-          <h4 className={style.headingtitlevehi} style={{paddingLeft: '5px'}}>Outcome</h4>
+          <h4 className={style.textboxtitle}>Outcome</h4>
           <TextField
             id="outcome"
             variant="outlined"
-            style={{ width: '96%' }}
+            className={style.textboxinput}
             InputProps={{
               classes: {
                 focused: style.focusedInput,
@@ -405,15 +379,15 @@ const TMVehicle = () => {
   <Grid item md={3} xs={3} sm={12}>
   </Grid>
   <Grid item md={3} xs={3} sm={12}>
-    <div style={{ width: '100%'}}>
-            <Button className={style.btntemp1first}>Clear</Button>
-            <Button className={style.btntemp2first}>Add</Button>
+    <div className={style.btn}>
+            <Button className={style.clear}>Clear</Button>
+            <Button className={style.add}>Add</Button>
           </div>
 
           </Grid>
 </Grid>
           
-  <h4 className={style.headingtitlevehi} style={{paddingLeft: '30px'}}>Recorded Incidents</h4>
+  <h4 className={style.recIncident}>Recorded Incidents</h4>
 
   <DataTable/>
 
@@ -429,15 +403,15 @@ const TMVehicle = () => {
    
   </Grid>
   <Grid item md={3} xs={3} sm={12}>
-    <div style={{ width: '100%'}}>
-            <Button className={style.btntemp1}>Delete</Button>
-            <Button className={style.btntemp2}>Use</Button>
+    <div className={style.btn}>
+            <Button className={style.delete}>Delete</Button>
+            <Button className={style.use}>Use</Button>
             
           </div>
 </Grid>
 </Grid>
-</Box>
-</Box>
+
+
 </section>
  </div>
 

@@ -36,17 +36,16 @@
   
   .cell {
     color: white !important;
-    // border: 1px solid #fff !important;
    
   }
   
 
   .table{
-    padding-left: 15px;
+    height: 370px;
+    width: 100%;
+    padding-left:15px;
     padding-right: 15px;
-  }
-
-  /* Table.module.scss */
+    }
 
 .pagination {
   display: flex;
@@ -62,10 +61,10 @@
 }
 
 .paginationButton button {
-  color: white; /* Set the pagination button text color to white */
+  color: white; 
 }
 
 .paginationSummary {
-  color: white; /* Set the pagination summary text color to white */
+  color: white; 
 }
 

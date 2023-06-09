@@ -40,12 +40,6 @@
   }
   
 
-  .table{
-    padding-left: 10px;
-    padding-right: 15px;
-  }
-
-  /* Table.module.scss */
 
 .pagination {
   display: flex;
@@ -61,10 +55,16 @@
 }
 
 .paginationButton button {
-  color: white; /* Set the pagination button text color to white */
+  color: white; 
 }
 
 .paginationSummary {
-  color: white; /* Set the pagination summary text color to white */
+  color: white; 
 }
 
+.table{
+  height: 370px;
+  width: 100%;
+  padding-left:15px;
+  padding-right: 15px;
+  }

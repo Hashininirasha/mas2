@@ -12,8 +12,7 @@ import Datapicker from '../TMVehicle/Calendar';
 
 
 const TMDriver = () => {
-  // const [showAlert, setShowAlert] = useState(false);
-  // const [value, setValue] = useState('');
+
 
   const [trans_com_isPlaceholderVisible, trans_com_setIsPlaceholderVisible] = React.useState(true);
 
@@ -92,48 +91,17 @@ const TMDriver = () => {
           <Box sx={{ flexGrow: 1 }} />
 
         </div>
-        <Box
-      component="form"
-      sx={{
-        '& .MuiTextField-root': { m: 1, width: '25ch' },
-      }}
-      noValidate
-      autoComplete="off"
-    >
-      <div> 
-
-
-    </div>
-
-    <Box
-      component="form"
-      sx={{
-        '& .MuiTextField-root': { m: 1, width: '25ch' },
-        '& fieldset': {
-          borderColor: 'white', // Set outline color to white
-        },
-        
-      }}
-      noValidate
-      autoComplete="off"
-    >
-      <div> 
-    
-    
-    </div>
-
-
 
     <Grid container spacing={2}>
 
 <Grid item md={6} xs={6} sm={12}>
    
      
-          <h4 className={style.headingtitlevehi} style={{paddingLeft: '5px'}}>Driver Name</h4>
+          <h4 className={style.textboxtitle}>Driver Name</h4>
           <TextField
             id="driverName"
             variant="outlined"
-            style={{ width: '96%' }}
+            className={style.textboxinput}
             InputProps={{
               classes: {
                 focused: style.focusedInput,
@@ -151,11 +119,11 @@ const TMDriver = () => {
 </Grid>
 
 <Grid item md={6} xs={6} sm={12}>
-          <h4 className={style.headingtitlevehi} style={{paddingLeft: '5px'}}>Transport Company</h4>
+          <h4 className={style.dropdownName}>Transport Company</h4>
           
 
 <FormControl
-  style={{ width: '98%', paddingLeft: '5px' }}
+   className={style.dropdownform}
   sx={{
     '& .MuiSelect-select': {
       color: 'white',
@@ -179,9 +147,9 @@ const TMDriver = () => {
 >
   <InputLabel
     id="transport_Company"
-    className={style.selectPlaceholder}
+    
     shrink={!trans_com_isPlaceholderVisible}
-    style={{ width: '98%' }}
+    className={style.dropdownInput}
   >
     {trans_com_isPlaceholderVisible ? 'Select Transport Comapny' : ''}
   </InputLabel>
@@ -210,12 +178,12 @@ const TMDriver = () => {
 
 <Grid item md={6} xs={6} sm={12}>
 
-          <h4 className={style.headingtitlevehi} style={{paddingLeft: '5px'}}>Driver NIC Number</h4>
+          <h4 className={style.textboxtitle}>Driver NIC Number</h4>
           
           <TextField
             id="driverNIC-basic"
             variant="outlined"
-            style={{ width: '96%' }}
+            className={style.textboxinput}
             InputProps={{
               classes: {
                 focused: style.focusedInput,
@@ -233,11 +201,11 @@ const TMDriver = () => {
 <Grid item md={6} xs={6} sm={12}>
        
      
-          <h4 className={style.headingtitlevehi} style={{paddingLeft: '5px'}}>Driver License Number</h4>
+          <h4 className={style.textboxtitle}>Driver License Number</h4>
           <TextField
             id="driverLicense-basic"
             variant="outlined"
-            style={{ width: '97%' }}
+            className={style.textboxinput}
             InputProps={{
               classes: {
                 focused: style.focusedInput,
@@ -268,9 +236,9 @@ const TMDriver = () => {
 
 <Grid item md={6} xs={6} sm={12}>
       
-          <h4 className={style.headingtitlevehi} style={{paddingLeft: '10px' }}>Plant</h4>
+          <h4 className={style.dropdownName}>Plant</h4>
           <FormControl 
- style={{ width: '99%', paddingLeft: '10px' }}
+className={style.dropdownform}
   sx={{
     '& .MuiSelect-select': {
       color: 'white',
@@ -294,9 +262,9 @@ const TMDriver = () => {
 >
   <InputLabel
     id="plant-label"
-    className={style.selectPlaceholder}
+    className={style.dropdownInput}
     shrink={!plant_isPlaceholderVisible}
-    style={{ width: '98%', paddingLeft: '5px'}}
+   
   >
     {plant_isPlaceholderVisible ? 'Select Plant' : ''}
   </InputLabel>
@@ -318,10 +286,10 @@ const TMDriver = () => {
 
 <Grid item md={6} xs={6} sm={12}>
       
-          <h4 className={style.headingtitlevehi} style={{paddingLeft: '15px'}}>Vehicle Type</h4>
+          <h4 className={style.dropdownName}>Vehicle Type</h4>
           <FormControl 
          
-   style={{ width: '98%', paddingLeft: '10px' }}
+         className={style.dropdownform}
 
   sx={{
     '& .MuiSelect-select': {
@@ -346,9 +314,9 @@ const TMDriver = () => {
 >
   <InputLabel
     id="vehiType-label"
-    className={style.selectPlaceholder}
+    className={style.dropdownInput}
     shrink={!vehiType_isPlaceholderVisible}
-    style={{ color: 'white', paddingLeft: '10px' }}
+  
     
   >
     {vehiType_isPlaceholderVisible ? 'Select Vehicle Type' : ''}
@@ -372,9 +340,9 @@ const TMDriver = () => {
 <Grid container spacing={2}>
 
 <Grid item md={6} xs={6} sm={12}>
-        <h4 className={style.headingtitlevehi} style={{paddingLeft: '10px' }}>Vehicle Number</h4>
+        <h4 className={style.dropdownName}>Vehicle Number</h4>
           <FormControl
- style={{ width: '99%', paddingLeft: '10px' }}
+ className={style.dropdownform}
   sx={{
     '& .MuiSelect-select': {
       color: 'white',
@@ -398,9 +366,9 @@ const TMDriver = () => {
 >
   <InputLabel
     id="vehiNum-label"
-    className={style.selectPlaceholder}
+    className={style.dropdownInput}
     shrink={!vehiNum_isPlaceholderVisible}
-    style={{ width: '98%', paddingLeft: '5px'}}
+    
   >
     {vehiNum_isPlaceholderVisible ? 'Select Vehicle Number' : ''}
   </InputLabel>
@@ -435,9 +403,9 @@ const TMDriver = () => {
   <Grid item md={3} xs={3} sm={12}>
   </Grid>
   <Grid item md={3} xs={3} sm={12}>
-<div style={{ width: '100%'}}>
-            <Button className={style.btntemp1first}>Clear</Button>
-            <Button className={style.btntemp2first}>Add</Button>
+<div className={style.btn}>
+            <Button className={style.clear}>Clear</Button>
+            <Button className={style.add}>Add</Button>
           </div>
 
           </Grid>
@@ -456,13 +424,13 @@ const TMDriver = () => {
 
 <Grid container spacing={2}>
 <Grid item md={12} xs={12} sm={12}>
-      <h4 className={style.headingtitlevehi} style={{paddingLeft: '5px'}}>Incident</h4>
+      <h4 className={style.incident}>Incident</h4>
       <TextField
           id="incident"
 
           placeholder="Enter Incident"
           multiline
-          style={{ width: '98%', paddingLeft: '1px' }}
+          className={style.inicidentText}
           InputProps={{
             classes: {
               focused: style.focusedInput,
@@ -484,12 +452,11 @@ const TMDriver = () => {
 <Grid container spacing={2}>
 <Grid item md={6} xs={6} sm={12}>
      
-          <h4 className={style.headingtitlevehi} style={{paddingLeft: '5px'}}>Date</h4>
+          <h4 className={style.dropdownName}>Date</h4>
           <TextField
   id="date"
   variant="outlined"
-  
-  style={{ width: '97%' }}
+  className={style.textboxinput}
   InputProps={{
     classes: {
       focused: style.focusedInput,
@@ -500,28 +467,36 @@ const TMDriver = () => {
       color: 'white',
     },
     endAdornment: (
+      <Grid container spacing={2}>
+      <Grid item md={6} xs={6} sm={12}>
       <IconButton
-        style={{ color: 'white'}}
+        className={style.calendarButtonicon}
         aria-label="calendar"
         component="span"
-      ><Datapicker/>
-      <div style={{paddingRight: "55px"}}>
+      >
+        
+       
+        <Datapicker/>
+        
+
+      <div style={{paddingRight: "500px"}}>
       
       </div>
       </IconButton>
+      </Grid>
+      </Grid>
     ),
   }}
   placeholder="dd/mm/yyyy"
 />
-
 </Grid>
 <Grid item md={6} xs={6} sm={12}>
       
-          <h4 className={style.headingtitlevehi} style={{paddingLeft: '10px'}}>Outcome</h4>
+          <h4 className={style.dropdownName}>Outcome</h4>
           <TextField
             id="outcome-basic"
             variant="outlined"
-            style={{ width: '96%' }}
+            className={style.textboxinput}
             InputProps={{
               classes: {
                 focused: style.focusedInput,
@@ -542,9 +517,9 @@ const TMDriver = () => {
 <Grid item md={6} xs={6} sm={12}>
 
 
-        <h4 className={style.headingtitlevehi} style={{paddingLeft: '5px'}}>Vehicle Number</h4>
+        <h4 className={style.dropdownName}>Vehicle Number</h4>
           <FormControl
-  style={{ width: '99%', paddingLeft: '10px' }}
+  className={style.dropdownform} 
   sx={{
     '& .MuiSelect-select': {
       color: 'white',
@@ -568,9 +543,9 @@ const TMDriver = () => {
 >
   <InputLabel
     id="vehiNum-label"
-    className={style.selectPlaceholder}
+    className={style.dropdownInput}
     shrink={!vehiNumIncident_isPlaceholderVisible}
-    style={{paddingLeft: '5px'}}
+   
   >
     {vehiNumIncident_isPlaceholderVisible ? 'Select Vehicle Number' : ''}
   </InputLabel>
@@ -597,12 +572,12 @@ const TMDriver = () => {
 <br></br>
  
     <br></br>
-    <h4 className={style.headingtitlevehi} style={{paddingLeft: '5px'}}>Recorded Incidents</h4>
+    <h4 className={style.dropdownName}>Recorded Incidents</h4>
   <Recincident/> 
 <br></br>
   <hr></hr>
   <br></br>
-  <h4 className={style.headingtitlevehi} style={{paddingLeft: '5px'}}>Previous Work History</h4>
+  <h4 className={style.dropdownName}>Previous Work History</h4>
   <br></br>
   <TablePrevious/>
   <br></br>
@@ -617,18 +592,16 @@ const TMDriver = () => {
   <Grid item md={3} xs={3} sm={12}>
   </Grid>
   <Grid item md={3} xs={3} sm={12}>
-  <div style={{ width: '100%'}}>
-            <Button className={style.btntemp1}>Delete</Button>
-            <Button className={style.btntemp2}>Use</Button>
+  <div className={style.btn}>
+            <Button className={style.del}>Delete</Button>
+            <Button className={style.use}>Use</Button>
           </div>
           </Grid>
           </Grid>
 
    <br></br>
        
-    </Box>
-  
-</Box>
+
 </section>
        
 

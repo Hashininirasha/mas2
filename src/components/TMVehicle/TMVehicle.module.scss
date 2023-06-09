@@ -72,27 +72,16 @@
 .titletextbox {
     color: $white !important;
     text-align: left;
-    // width: 50% !important;
-    // padding-left: 10px !important;
+
     max-width: 520px !important;
    
-  
-    // margin-bottom: 10px !important;
-    // outline:  white !important;
-    // input::placeholder {
-    //   color: $white !important; /* Set the placeholder color to white */
-    // }
   }
 
   
 
   .titletextboxdropdown {
     color: $gray !important;
-    // width: 100% !important;
-    // padding-left: 10px !important;
-    // max-width: 550px !important;
-    // padding-right: 10px !important;
-    // margin-left: 10px !important;
+ 
   
    
   }
@@ -198,7 +187,7 @@
   }
 
 
-  .btntemp2 {
+  .use {
     background-color: red !important;
     color: white !important;
     font-weight: normal;
@@ -206,14 +195,8 @@
     text-transform: none !important;
   }
   
-  .btn {
-    padding-left: 950px;
-    padding-bottom: 10px;
-    display: flex;
-    align-items: center;
-  }
-  
-  .btntemp1 {
+ 
+  .delete{
     background-color: black !important;
     color: white !important;
     font-weight: normal;
@@ -232,14 +215,7 @@
   color: $gray !important;
 }
 
-.btntemp2first {
-  background-color: $black !important;
-  color: white !important;
-  font-weight: normal;
-  text-align: left;
-  text-transform: none !important;
-  border: 1px solid white !important;
-}
+
 
 .btnfirst {
   padding-left: 950px;
@@ -248,7 +224,10 @@
   align-items: center;
 }
 
-.btntemp1first {
+
+
+
+.clear {
   background-color: $gray !important;
   color: white !important;
   font-weight: normal;
@@ -261,7 +240,22 @@
     margin-right: 0 !important;
     margin-bottom: 10px !important;
   }
+
 }
+.add {
+  background-color: $black !important;
+  color: white !important;
+  font-weight: normal;
+  text-align: left;
+  text-transform: none !important;
+  border: 1px solid white !important;
+}
+
+
+.btn{
+  width: 100% !important;
+}
+
 
 .styleleft{
   color: $gray !important;
@@ -285,3 +279,49 @@
 .styleright{
   width: 100% !important;
 }
+
+
+
+.dropdownName{
+  text-align: left;
+  padding-left: 15px;
+}
+
+.dropdownform{
+  width: 98% !important;
+  padding-left: 15px !important;
+  color: $gray !important;
+}
+
+.dropdownInput{
+  padding-left: 15px !important;
+  color: $gray !important;
+}
+
+.textboxtitle{
+  padding-left: 15px !important;
+}
+
+.textboxinput{
+  width: 97% !important;
+  padding-left: 15px !important;
+}
+
+.incident{
+  padding-left: 15px !important;
+
+}
+
+.inicidentText{
+  width: 98.5% !important;
+  padding-left: 15px !important;
+}
+
+.calendarButtonicon{
+  color: $white !important;
+}
+
+.recIncident{
+  padding-left: 30px;
+}
+
