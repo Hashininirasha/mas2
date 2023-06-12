@@ -1,85 +1,147 @@
-import React from 'react';
-import { DataGrid, GridColDef, GridCellParams } from '@mui/x-data-grid';
+import * as React from 'react';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
+import TableSortLabel from '@mui/material/TableSortLabel';
+import SortByAlphaIcon from '@mui/icons-material/SortByAlpha';
 import styles from './TableREcinci.module.scss'
 
-const columns: GridColDef[] = [
-    {
-      field: 'id',
-      headerName: '#',
-      width: 120,
-      renderHeader: () => <span className={styles.columnHeader} >#</span>,
-      renderCell: (params: GridCellParams) => (
-        <span className={styles.cell}>{params.value as React.ReactNode}</span>
-      ),
-    },
-    {
-      field: 'sub',
-      headerName: 'SUB/Plant',
-      width: 600,
-      renderHeader: () => <span className={styles.columnHeader}>SUB/Plant</span>,
-      renderCell: (params: GridCellParams) => (
-        <span className={styles.cell}>{params.value as React.ReactNode}</span>
-      ),
-    },
-
-    {
-      field: 'from',
-      headerName: 'From',
-      width: 200,
-      renderHeader: () => <span className={styles.columnHeader}>From</span>,
-      renderCell: (params: GridCellParams) => {
-        const dateValue = new Date(params.value as string);
-        const formattedDate = dateValue.toLocaleDateString(); 
-    
-        return <span className={styles.cell}>{formattedDate}</span>;
-      },
-    },
-    {
-        field: 'to',
-        headerName: 'To',
-        width: 150,
-        renderHeader: () => <span className={styles.columnHeader}>To</span>,
-        renderCell: (params: GridCellParams) => {
-          const dateValue = new Date(params.value as string);
-          const formattedDate = dateValue.toLocaleDateString(); 
-      
-          return <span className={styles.cell}>{formattedDate}</span>;
-        },
-      },
-    
-    
-  ];
+function createData(
+  id: number,
+  sbu: string,
+  from: Date,
+  to: Date,
   
-  const rows = [
-    { id: 1, from: new Date('2023-07-22'), sub: "MAS Kreeda",to: new Date('2023-07-22')},
-    { id: 2, from: new Date('2021-04-08'), sub: "MAS Intima", to: new Date('2021-04-08') },
-    { id: 3, from: new Date('2021-04-10'), sub: "MAS Kreeda", to: new Date('2021-04-10')},
-    { id: 4, from: new Date('2020-10-08'), sub: "MAS Intima", to: new Date('2020-10-08') },
-    { id: 5, from: new Date('2021-06-18'), sub: "MAS Intima", to: new Date('2021-06-18')},
-    { id: 6, from: new Date('2020-12-30'), sub: "MAS Kreeda", to: new Date('2020-12-30')},
-    { id: 7, from: new Date('2021-05-10'), sub: "MAS Kreeda", to: new Date('2021-05-10')},
-    { id: 8, from: new Date('2020-01-08'), sub: "MAS Kreeda", to: new Date('2020-01-08')},
-    { id: 9, from: new Date('2020-11-26'), sub: "MAS Intima", to: new Date('2020-11-26') },
-    { id: 10, from: new Date('2021-02-08'), sub: "MAS Kreeda", to: new Date('2021-02-08') },
-    { id: 11, from: new Date('2021-05-18'), sub: "MAS Intima", to: new Date('2021-05-18') },
-  ];
-  
+ 
+) {
+  return { id, sbu, from, to};
+}
 
+const initialRows = [
+  createData(1, "MAS Kreeda",new Date('2023-07-22'), new Date('2023-07-23')),
+  createData(2, "MAS Intima", new Date('2021-04-08'), new Date('2021-04-10') ),
+  createData(3, "MAS Kreeda", new Date('2021-04-10'), new Date('2021-04-11')),
+  createData(4, "MAS Kreeda", new Date('2020-10-08'), new Date('2020-10-10') ),
+  createData(5, "MAS Intima", new Date('2021-06-18'), new Date('2021-06-18')),
+];
 
-export default function TablePrevious() {
-    return (
-        <div className={styles.table}>
-          <DataGrid
-            rows={rows}
-            columns={columns}
-            initialState={{
-              pagination: {
-                paginationModel: { page: 0, pageSize: 5 },
-              },
-            }}
-            className={styles.dataGrid} 
-          />
-        </div>
-      );
-      
+export default function DataTable() {
+  const [orderBy, setOrderBy] = React.useState('');
+  const [order, setOrder] = React.useState<'asc' | 'desc' | undefined>(undefined);
+  const [rows, setRows] = React.useState(initialRows);
+
+  const handleSortRequest = (property: string) => {
+    const isAsc = orderBy === property && order === 'asc';
+    setOrderBy(property);
+    setOrder(isAsc ? 'desc' : 'asc');
+  };
+
+  const sortedRows = React.useMemo(() => {
+    const comparator = (a: any, b: any) => {
+      if (order === 'asc') {
+        return a[orderBy] > b[orderBy] ? 1 : -1;
+      } else {
+        return a[orderBy] < b[orderBy] ? 1 : -1;
+      }
+    };
+
+    if (orderBy) {
+      return [...rows].sort(comparator);
     }
+    return rows;
+  }, [orderBy, order, rows]);
+
+
+  
+
+  return (
+
+    <TableContainer component={Paper} className={styles.table}>
+      <Table sx={{ minWidth: 250 }} aria-label="simple table" className={styles.table}>
+        <TableHead >
+          <TableRow className={styles.tableHeader}>
+
+          <TableCell>
+            <TableSortLabel
+                active={orderBy === 'id'}
+                direction={orderBy === 'id' ? order : undefined}
+                onClick={() => handleSortRequest('id')}
+                IconComponent={() => <SortByAlphaIcon className={styles.alphaaicon} />}
+                className={styles.tableHeader}
+              >
+                #
+              </TableSortLabel>
+            </TableCell>
+           
+            <TableCell>
+              <TableSortLabel 
+                active={orderBy === 'sbu'}
+                direction={orderBy === 'sbu' ? order : undefined}
+                onClick={() => handleSortRequest('sbu')}
+                IconComponent={() => <SortByAlphaIcon className={styles.alphaaicon} />}
+                className={styles.tableHeader}
+                
+              >
+              SBU
+              </TableSortLabel>
+              </TableCell>
+              <TableCell>
+              <TableSortLabel
+                active={orderBy === 'from'}
+                direction={orderBy === 'from' ? order : undefined}
+                onClick={() => handleSortRequest('from')}
+                IconComponent={() => <SortByAlphaIcon className={styles.alphaaicon} />}
+                className={styles.tableHeader}
+              >
+                From
+              </TableSortLabel>
+            </TableCell>
+
+            <TableCell>
+              <TableSortLabel
+                active={orderBy === 'to'}
+                direction={orderBy === 'to' ? order : undefined}
+                onClick={() => handleSortRequest('to')}
+                IconComponent={() => <SortByAlphaIcon className={styles.alphaaicon} />}
+                className={styles.tableHeader}
+              >
+                To
+              </TableSortLabel>
+            </TableCell>
+           
+
+        
+     
+        
+
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {sortedRows.map((row) => (
+            <TableRow
+              key={row.id}
+              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+            >
+                 <TableCell component="th" scope="row" className={styles.table}>
+                {row.id}
+              </TableCell>
+              <TableCell className={styles.table}>{row.sbu}</TableCell>
+              <TableCell className={styles.table}>{row.from.toLocaleDateString("en-US", { year: 'numeric', month: 'short', day: 'numeric' })}</TableCell>
+
+              <TableCell className={styles.table}>{row.to.toLocaleDateString("en-US", { year: 'numeric', month: 'short', day: 'numeric' })}</TableCell>
+
+           
+      
+                
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </TableContainer>
+  );
+}
+

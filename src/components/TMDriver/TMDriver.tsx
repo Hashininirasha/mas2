@@ -3,13 +3,9 @@ import React, { useState } from 'react'
 import style from './TMDriver.module.scss'
 import { useNavigate } from 'react-router-dom';
 import { APP_ROUTES } from '../../utilities/constants/routes.constants';
-import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import DataTableassign from './TableAssignVehi'
 import Recincident from './TableRecinci'
 import TablePrevious from './TablePrevious'
-import Datapicker from '../TMVehicle/Calendar';
-
-
 
 const TMDriver = () => {
 
@@ -67,6 +63,9 @@ const TMDriver = () => {
   const vehiNumIncident_handleChangeOption = (event: any) => {
     vehiNumIncident_setSelectedOption(event.target.value);
   };
+
+  const [date, setDate] = useState('');
+  console.log("date", date);
   const navigate = useNavigate()
 
   const handleNewRequest = () => {
@@ -454,41 +453,31 @@ className={style.dropdownform}
      
           <h4 className={style.dropdownName}>Date</h4>
           <TextField
-  id="date"
-  variant="outlined"
-  className={style.textboxinput}
-  InputProps={{
-    classes: {
-      focused: style.focusedInput,
-      notchedOutline: style.whiteOutline,
-      input: style.whitePlaceholder,
-    },
-    style: {
-      color: 'white',
-    },
-    endAdornment: (
-      <Grid container spacing={2}>
-      <Grid item md={6} xs={6} sm={12}>
-      <IconButton
-        className={style.calendarButtonicon}
-        aria-label="calendar"
-        component="span"
-      >
+        type="date"
+        id="date"
         
-       
-        <Datapicker/>
         
+        className={style.inicidentText}
+        InputProps={{
+          classes: {
+            focused: style.focusedInput,
+            notchedOutline: style.whiteOutline
+          },
+          style: {
+            color: 'white', 
+          }
+        }}
+        onChange={e => setDate(e.target.value)}
+      />
 
-      <div style={{paddingRight: "500px"}}>
-      
-      </div>
-      </IconButton>
-      </Grid>
-      </Grid>
-    ),
-  }}
-  placeholder="dd/mm/yyyy"
-/>
+<style>{`
+        input[type="date"]::-webkit-calendar-picker-indicator {
+          filter: invert(1);
+         
+          width: 24px;
+          height: 24px;
+        }
+      `}</style>
 </Grid>
 <Grid item md={6} xs={6} sm={12}>
       

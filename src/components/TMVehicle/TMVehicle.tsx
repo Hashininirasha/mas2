@@ -4,47 +4,105 @@ import style from './TMVehicle.module.scss'
 import { useNavigate } from 'react-router-dom';
 import { APP_ROUTES } from '../../utilities/constants/routes.constants';
 import DataTable from '../TMVehicle/Table'
-import Datapicker from './Calendar'
-import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
+import IVehicleadd, {IIncident} from '../../types/addVehicle'
 
+const incidentsList:IIncident[]=[]
 
 const TMVehicle = () => {
 
-  const [com_name_isPlaceholderVisible, com_name_setIsPlaceholderVisible] = React.useState(true);
+  const [com_name_isPlaceholderVisible, setcom_name_isPlaceholderVisible] = React.useState(true);
+  const [vehitype_isPlaceholderVisible, setvehitype_isPlaceholderVisible] = React.useState(true);
+  const [plant_name_isPlaceholderVisible, setplant_name_isPlaceholderVisible] = React.useState(true);
 
-  const com_name_handleSelectClick= () => {
-    com_name_setIsPlaceholderVisible(false);
-  };
-
-  const [vehitype_isPlaceholderVisible, vehitype_setIsPlaceholderVisible] = React.useState(true);
-
-  const vehitype_handleSelectClick = () => {
-    vehitype_setIsPlaceholderVisible(false);
-  };
-
-  const [plant_isPlaceholderVisible, plant_setIsPlaceholderVisible] = React.useState(true);
-
-  const plant_handleSelectClick = () => {
-    plant_setIsPlaceholderVisible(false);
-  };
-  
-  const [com_name_selectedOption, com_name_setSelectedOption] = useState('');
-  const [vehitype_selectedOption, vehitype_setSelectedOption] = useState('');
-  const [plant_selectedOption, plant_setSelectedOption] = useState('');
-
-
-  const com_name_handleChangeOption = (event: any) => {
-    com_name_setSelectedOption(event.target.value);
-  };
-
-  const vehitype_handleChangeOption = (event: any) => {
-    vehitype_setSelectedOption(event.target.value);
-  };
-
-  const plant_handleChangeOption = (event: any) => {
-    plant_setSelectedOption(event.target.value);
-  };
+   const [date, setDate] = useState('');
+ 
   const navigate = useNavigate()
+
+
+  const incidentDetailsInitial: IIncident={
+    Incident:"",
+    Date:"",
+    Outcome:"",
+    Id:"",
+  }
+
+  const incident: IIncident={
+    Incident:"",
+    Date:"",
+    Outcome:"",
+    Id:"",
+  }
+
+
+  const dispatch = useDispatch();
+
+  const [CompanyName, setCompanyName] = useState('')
+  const [VehicleType, setVehicleType] = useState('')
+  const [plant, setplant] = useState('')
+
+  const vehicleadd: IVehicleadd = {
+    CompnayName: CompanyName,
+    VehicleNumber: "",
+    VehicleType: VehicleType,
+    Plant: plant,
+    Seats: 0,
+
+   
+  };
+
+  const [vehicleaddData, setvehicleaddData] = useState({
+    CompnayName: vehicleadd.CompnayName,
+    VehicleNumber: vehicleadd.VehicleNumber,
+    VehicleType: vehicleadd.VehicleType,
+    Plant: vehicleadd.Plant,
+    Seats: vehicleadd.Seats,
+ 
+  });
+
+  const [incidentData, setIncidentData] = useState({
+
+
+    Incident:incident.Incident,
+    Date:incident.Date,
+    Outcome:incident.Outcome,
+    Id:"",
+
+  });
+
+
+  const handleChange = (event:any) => {
+    const { name, value } = event.target;
+    setvehicleaddData((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
+
+  const handlePaymentDetailChange = (event:any) => {
+    const { name, value } = event.target;
+    setIncidentData((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
+
+
+  const AddPaymentDetails=()=>{
+    incidentData.Id=new Date().getUTCMilliseconds().toString();
+    incidentsList.push(incidentData);
+    setIncidentData(incidentDetailsInitial);
+    setIncidentData((prevState) => ({
+      ...prevState,
+      BankDetails: incidentsList,
+    }));
+    dispatch(addPaymentMethodList(incidentData));
+    
+  }
+
+  const ClearPaymentDetails=()=>{
+    setIncidentData(incidentDetailsInitial);
+  }
+  
 
   const handleNewRequest = () => {
 
@@ -79,49 +137,49 @@ const TMVehicle = () => {
 <Grid item md={6} xs={6} sm={12}>
           <h4 className={style.dropdownName}>Company Name</h4>
           <FormControl
-        className={style.dropdownform}
-  sx={{
-    '& .MuiSelect-select': {
-      color: 'white',
-      '&:hover, &:focus': {
-        color: 'white',
-      },
-    },
-    '& .MuiSelect-icon': { color: 'white' },
-    '& .MuiOutlinedInput-root': {
-      color: 'white',
-      '& fieldset': { borderColor: 'white' },
-      '&:hover fieldset, &:focus fieldset': { borderColor: 'white' },
-    },
-    '& .MuiMenuItem-root': {
-      color: 'white',
-      '&:hover, &:focus': {
-        backgroundColor: 'white',
-      },
-    },
-  }}
->
-  <InputLabel
-  className={style.dropdownInput}
-    id="company_name"
-    shrink={!com_name_isPlaceholderVisible}
-  >
-    
-    {com_name_isPlaceholderVisible ? 'Select Company Name' : ''}
-  </InputLabel>
-  <Select
-    labelId="comName-label"
-    id="comName"
-    value={com_name_selectedOption}
-    onChange={com_name_handleChangeOption}
-    onClick={com_name_handleSelectClick}
- 
-  >
-    <MenuItem value="option1Value1">Option 1 Value 1</MenuItem>
-    <MenuItem value="option1Value2">Option 1 Value 2</MenuItem>
-    <MenuItem value="option1Value3">Option 1 Value 3</MenuItem>
-  </Select>
-</FormControl>
+           className={style.dropdownform}
+           sx={{
+            '& .MuiSelect-select': {
+              color: 'white',
+              '&:hover, &:focus': {
+                color: 'white',
+              },
+            },
+            '& .MuiSelect-icon': { color: 'white' },
+            '& .MuiOutlinedInput-root': {
+              color: 'white',
+              '& fieldset': { borderColor: 'white' },
+              '&:hover fieldset, &:focus fieldset': { borderColor: 'white' },
+            },
+            '& .MuiMenuItem-root': {
+              color: 'white',
+              '&:hover, &:focus': {
+                backgroundColor: 'white',
+              },
+            },
+          }}
+        >
+          <InputLabel
+            id="CompanyName"
+            className={style.dropdownInput}
+            shrink={!com_name_isPlaceholderVisible}
+           
+           
+          >
+            {com_name_isPlaceholderVisible ? 'Select Company' : ''}
+          </InputLabel>
+          <Select
+            labelId="option1-label"
+            id="option1"
+            value={vehicleaddData.CompnayName}
+            onChange={handleChange}
+            name="CompnayName"
+            onClick={()=>{setcom_name_isPlaceholderVisible(false)}}>
+            <MenuItem value="1">1</MenuItem>
+            <MenuItem value="2">2</MenuItem>
+            <MenuItem value="3">3</MenuItem>
+          </Select>
+        </FormControl>
 
 
      
@@ -133,6 +191,9 @@ const TMVehicle = () => {
             id="vehicle_number"
             variant="outlined"
             className={style.textboxinput}
+            name="VehicleNumber"
+            value={vehicleaddData.VehicleNumber}
+            onChange={handleChange}
             InputProps={{
               classes: {
                 focused: style.focusedInput,
@@ -157,96 +218,96 @@ const TMVehicle = () => {
           <h4 className={style.dropdownName}>Vehicle Type</h4>
           <FormControl
            className={style.dropdownform}
-  sx={{
-    '& .MuiSelect-select': {
-      color: 'white',
-      '&:hover, &:focus': {
-        color: 'white',
-      },
-    },
-    '& .MuiSelect-icon': { color: 'white' },
-    '& .MuiOutlinedInput-root': {
-      color: 'white',
-      '& fieldset': { borderColor: 'white' },
-      '&:hover fieldset, &:focus fieldset': { borderColor: 'white' },
-    },
-    '& .MuiMenuItem-root': {
-      color: 'white',
-      '&:hover, &:focus': {
-        backgroundColor: 'white',
-      },
-    },
-  }}
->
-  <InputLabel
-    id="vehicle_type"
-    className={style.dropdownInput}
-    shrink={!vehitype_isPlaceholderVisible}
-    
-  >
-    {vehitype_isPlaceholderVisible ? 'Select Vehicle Type' : ''}
-  </InputLabel>
-  <Select
-    labelId="vehiType-label"
-    id="vehiType"
-    value={vehitype_selectedOption}
-    onChange={vehitype_handleChangeOption}
-    onClick={vehitype_handleSelectClick}
-   
-  >
-    <MenuItem value="option1Value1">Option 1 Value 1</MenuItem>
-    <MenuItem value="option1Value2">Option 1 Value 2</MenuItem>
-    <MenuItem value="option1Value3">Option 1 Value 3</MenuItem>
-  </Select>
-</FormControl>
+           sx={{
+            '& .MuiSelect-select': {
+              color: 'white',
+              '&:hover, &:focus': {
+                color: 'white',
+              },
+            },
+            '& .MuiSelect-icon': { color: 'white' },
+            '& .MuiOutlinedInput-root': {
+              color: 'white',
+              '& fieldset': { borderColor: 'white' },
+              '&:hover fieldset, &:focus fieldset': { borderColor: 'white' },
+            },
+            '& .MuiMenuItem-root': {
+              color: 'white',
+              '&:hover, &:focus': {
+                backgroundColor: 'white',
+              },
+            },
+          }}
+        >
+          <InputLabel
+            id="sbu"
+            className={style.dropdownInput}
+            shrink={!vehitype_isPlaceholderVisible}
+           
+           
+          >
+            {vehitype_isPlaceholderVisible ? 'Select Attached SBUs' : ''}
+          </InputLabel>
+          <Select
+            labelId="option1-label"
+            id="option1"
+            value={vehicleaddData.VehicleType}
+            onChange={handleChange}
+            name="VehicleType"
+            onClick={()=>{setvehitype_isPlaceholderVisible(false)}}>
+            <MenuItem value="1">SBU1</MenuItem>
+            <MenuItem value="2">SBU2</MenuItem>
+            <MenuItem value="3">SBU3</MenuItem>
+          </Select>
+        </FormControl>
 
 </Grid>
 <Grid item md={6} xs={6} sm={12}>
           <h4 className={style.dropdownName}>Plant</h4>
           <FormControl
-     className={style.dropdownform}
-  sx={{
-    '& .MuiSelect-select': {
-      color: 'white',
-      '&:hover, &:focus': {
-        color: 'white',
-      },
-    },
-    '& .MuiSelect-icon': { color: 'white' },
-    '& .MuiOutlinedInput-root': {
-      color: 'white',
-      '& fieldset': { borderColor: 'white' },
-      '&:hover fieldset, &:focus fieldset': { borderColor: 'white' },
-    },
-    '& .MuiMenuItem-root': {
-      color: 'white',
-      '&:hover, &:focus': {
-        backgroundColor: 'white',
-      },
-    },
-  }}
->
-  <InputLabel
-    id="plant"
-    className={style.dropdownInput}
-    shrink={!plant_isPlaceholderVisible}
-   
-  >
-    {plant_isPlaceholderVisible ? 'Select Plant' : ''}
-  </InputLabel>
-  <Select
-    labelId="plant-label"
-    id="plant"
-    value={plant_selectedOption}
-    onChange={plant_handleChangeOption}
-    onClick={plant_handleSelectClick}
-    
-  >
-    <MenuItem value="option1Value1">Option 1 Value 1</MenuItem>
-    <MenuItem value="option1Value2">Option 1 Value 2</MenuItem>
-    <MenuItem value="option1Value3">Option 1 Value 3</MenuItem>
-  </Select>
-</FormControl>       
+           className={style.dropdownform}
+           sx={{
+            '& .MuiSelect-select': {
+              color: 'white',
+              '&:hover, &:focus': {
+                color: 'white',
+              },
+            },
+            '& .MuiSelect-icon': { color: 'white' },
+            '& .MuiOutlinedInput-root': {
+              color: 'white',
+              '& fieldset': { borderColor: 'white' },
+              '&:hover fieldset, &:focus fieldset': { borderColor: 'white' },
+            },
+            '& .MuiMenuItem-root': {
+              color: 'white',
+              '&:hover, &:focus': {
+                backgroundColor: 'white',
+              },
+            },
+          }}
+        >
+          <InputLabel
+            id="sbu"
+            className={style.dropdownInput}
+            shrink={!plant_name_isPlaceholderVisible}
+           
+           
+          >
+            {plant_name_isPlaceholderVisible ? 'Select Attached SBUs' : ''}
+          </InputLabel>
+          <Select
+            labelId="option1-label"
+            id="option1"
+            value={vehicleaddData.Plant}
+            onChange={handleChange}
+            name="Plant"
+            onClick={()=>{setplant_name_isPlaceholderVisible(false)}}>
+            <MenuItem value="1">1</MenuItem>
+            <MenuItem value="2">2</MenuItem>
+            <MenuItem value="3">3</MenuItem>
+          </Select>
+        </FormControl>      
 </Grid>
 </Grid>
       
@@ -261,6 +322,9 @@ const TMVehicle = () => {
             id="Seats"
             variant="outlined"
             className={style.textboxinput}
+            name="Seats"
+            value={vehicleaddData.Seats}
+            onChange={handleChange}
             InputProps={{
               classes: {
                 focused: style.focusedInput,
@@ -289,6 +353,9 @@ const TMVehicle = () => {
       <TextField
           id="incident"
           placeholder="Enter Incident"
+          value={incidentData.Incident}
+          name="Incident"
+          onChange={handlePaymentDetailChange}
           className={style.inicidentText}
           multiline
         
@@ -312,35 +379,33 @@ const TMVehicle = () => {
 <Grid item md={6} xs={6} sm={12}>
           <h4 className={style.textboxtitle}>Date</h4>
           <TextField
-  id="date"
-  variant="outlined"
-  className={style.textboxinput}
-  InputProps={{
-    classes: {
-      focused: style.focusedInput,
-      notchedOutline: style.whiteOutline,
-      input: style.whitePlaceholder,
-    },
-    style: {
-      color: 'white',
-    },
-    endAdornment: (
-      <IconButton
-        className={style.calendarButtonicon}
-        aria-label="calendar"
-        component="span"
-      > 
-        <Datapicker/>
+        type="date"
+        id="date"
+        // value={incidentData.Date}
+        //   name="Date"
+        //   onChange={handlePaymentDetailChange}
+        
+        className={style.inicidentText}
+        InputProps={{
+          classes: {
+            focused: style.focusedInput,
+            notchedOutline: style.whiteOutline
+          },
+          style: {
+            color: 'white', 
+          }
+        }}
+        onChange={e => setDate(e.target.value)}
+      />
 
-     
-      
-   
-      </IconButton>
-    ),
-  }}
-  placeholder="dd/mm/yyyy"
-/>
-
+<style>{`
+        input[type="date"]::-webkit-calendar-picker-indicator {
+          filter: invert(1);
+         
+          width: 24px;
+          height: 24px;
+        }
+      `}</style>
 </Grid>
 
 <Grid item md={6} xs={6} sm={12}>
@@ -349,6 +414,9 @@ const TMVehicle = () => {
           <TextField
             id="outcome"
             variant="outlined"
+            value={incidentData.Outcome}
+          name="Outcome"
+          onChange={handlePaymentDetailChange}
             className={style.textboxinput}
             InputProps={{
               classes: {

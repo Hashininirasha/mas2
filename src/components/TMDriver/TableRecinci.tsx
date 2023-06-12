@@ -1,89 +1,160 @@
-import React from 'react';
-import { DataGrid, GridColDef, GridCellParams } from '@mui/x-data-grid';
+import * as React from 'react';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
+import TableSortLabel from '@mui/material/TableSortLabel';
+import SortByAlphaIcon from '@mui/icons-material/SortByAlpha';
 import styles from './TableREcinci.module.scss'
 
-const columns: GridColDef[] = [
-    {
-      field: 'id',
-      headerName: '#',
-      width: 120,
-      renderHeader: () => <span className={styles.columnHeader} >#</span>,
-      renderCell: (params: GridCellParams) => (
-        <span className={styles.cell}>{params.value as React.ReactNode}</span>
-      ),
-    },
-    {
-      field: 'incident',
-      headerName: 'Incident',
-      width: 280,
-      renderHeader: () => <span className={styles.columnHeader}>Incident</span>,
-      renderCell: (params: GridCellParams) => (
-        <span className={styles.cell}>{params.value as React.ReactNode}</span>
-      ),
-    },
-    {
-      field: 'vehinum',
-      headerName: 'Vehicle Number',
-      width: 300,
-      renderHeader: () => <span className={styles.columnHeader}>Vehicle Number</span>,
-      renderCell: (params: GridCellParams) => (
-        <span className={styles.cell}>{params.value as React.ReactNode}</span>
-      ),
-    },
-    {
-      field: 'date',
-      headerName: 'Date',
-      width: 150,
-      renderHeader: () => <span className={styles.columnHeader}>Date</span>,
-      renderCell: (params: GridCellParams) => {
-        const dateValue = new Date(params.value as string);
-        const formattedDate = dateValue.toLocaleDateString(); 
-    
-        return <span className={styles.cell}>{formattedDate}</span>;
-      },
-    },
-    
-    {
-      field: 'outcome',
-      headerName: 'Outcome',
-      width: 200,
-      renderHeader: () => <span className={styles.columnHeader}>Outcome</span>,
-      renderCell: (params: GridCellParams) => (
-        <span className={styles.cell}>{params.value as React.ReactNode}</span>
-      ),
-    },
-  ];
+function createData(
+  id: number,
+  incident: string,
+  vehinum: string,
+  date: Date,
+  outcome: string,
   
-  const rows = [
-    { id: 1, date: new Date('2023-07-22'), vehinum: "ABC 1285", incident: 'Jon', outcome: 'Driver' },
-    { id: 2, date: new Date('2021-04-08'), vehinum: "GHN 5236", incident: 'Cersei', outcome: 'Driver Suspended' },
-    { id: 3, date: new Date('2021-04-10'), vehinum: "YHN 8523", incident: 'Jaime', outcome: 'Driver Allocated' },
-    { id: 4, date: new Date('2020-10-08'), vehinum: "ABC 1285", incident: 'Arya', outcome: 'Driver Suspended' },
-    { id: 5, date: new Date('2021-06-18'), vehinum: "ABC 1285", incident: 'Daenerys', outcome: 'Driver Allocated' },
-    { id: 6, date: new Date('2020-12-30'), vehinum: "ABC 1285", incident: 'Arya', outcome: 'Driver' },
-    { id: 7, date: new Date('2021-05-10'), vehinum: "ABC 1285", incident: 'Ferrara', outcome: 'Driver Suspended' },
-    { id: 8, date: new Date('2020-01-08'), vehinum: "ABC 1285", incident: 'Rossini', outcome: 'Driver Suspended' },
-    { id: 9, date: new Date('2020-11-26'), vehinum: "ABC 1285", incident: 'Charvey', outcome: 'Driver' },
-    { id: 10, date: new Date('2021-02-08'), vehinum: "ABC 1285", incident: 'Bharvey', outcome: 'Driver Suspended' },
-    { id: 11, date: new Date('2021-05-18'), vehinum: "ABC 1285", incident: 'Aharvey', outcome: 'Driver' },
-  ];
-  
+ 
+) {
+  return { id, incident,vehinum, date, outcome };
+}
 
+const initialRows = [
+  createData(1, "Cited for speeding", "KLG 521", new Date('2023-07-22'), "Driver Suspended"),
+  createData(2, "Driver charged with speeding in garment truck", "JNM 562" , new Date('2021-04-08'), "Driver Suspended"),
+  createData(3, "Cited for speeding", "MNG 5236", new Date('2021-04-10'),"Driver Suspended"),
+  createData(4, "Driver charged with speeding in garment truck", "HUJ 452", new Date('2020-10-08'), "Driver Suspended"),
+  createData(5, "Cited for speeding", "HMH 128", new Date('2021-06-18'), "Driver Suspended"),
+];
 
-export default function Recincident() {
-    return (
-        <div className={styles.table}>
-          <DataGrid
-            rows={rows}
-            columns={columns}
-            initialState={{
-              pagination: {
-                paginationModel: { page: 0, pageSize: 5 },
-              },
-            }}
-            className={styles.dataGrid} 
-          />
-        </div>
-      );
-      
+export default function DataTable() {
+  const [orderBy, setOrderBy] = React.useState('');
+  const [order, setOrder] = React.useState<'asc' | 'desc' | undefined>(undefined);
+  const [rows, setRows] = React.useState(initialRows);
+
+  const handleSortRequest = (property: string) => {
+    const isAsc = orderBy === property && order === 'asc';
+    setOrderBy(property);
+    setOrder(isAsc ? 'desc' : 'asc');
+  };
+
+  const sortedRows = React.useMemo(() => {
+    const comparator = (a: any, b: any) => {
+      if (order === 'asc') {
+        return a[orderBy] > b[orderBy] ? 1 : -1;
+      } else {
+        return a[orderBy] < b[orderBy] ? 1 : -1;
+      }
+    };
+
+    if (orderBy) {
+      return [...rows].sort(comparator);
     }
+    return rows;
+  }, [orderBy, order, rows]);
+
+
+  
+
+  return (
+
+    <TableContainer component={Paper} className={styles.table}>
+      <Table sx={{ minWidth: 250 }} aria-label="simple table" className={styles.table}>
+        <TableHead >
+          <TableRow className={styles.tableHeader}>
+
+          <TableCell>
+            <TableSortLabel
+                active={orderBy === 'id'}
+                direction={orderBy === 'id' ? order : undefined}
+                onClick={() => handleSortRequest('id')}
+                IconComponent={() => <SortByAlphaIcon className={styles.alphaaicon} />}
+                className={styles.tableHeader}
+              >
+                #
+              </TableSortLabel>
+            </TableCell>
+           
+            <TableCell>
+              <TableSortLabel 
+                active={orderBy === 'incident'}
+                direction={orderBy === 'incident' ? order : undefined}
+                onClick={() => handleSortRequest('incident')}
+                IconComponent={() => <SortByAlphaIcon className={styles.alphaaicon} />}
+                className={styles.tableHeader}
+                
+              >
+               Incident
+              </TableSortLabel>
+              </TableCell>
+
+              <TableCell>
+              <TableSortLabel 
+                active={orderBy === 'vehinum'}
+                direction={orderBy === 'vehinum' ? order : undefined}
+                onClick={() => handleSortRequest('vehinum')}
+                IconComponent={() => <SortByAlphaIcon className={styles.alphaaicon} />}
+                className={styles.tableHeader}
+                
+              >
+               Vehicle Number
+              </TableSortLabel>
+              </TableCell>
+
+              <TableCell>
+              <TableSortLabel
+                active={orderBy === 'date'}
+                direction={orderBy === 'date' ? order : undefined}
+                onClick={() => handleSortRequest('date')}
+                IconComponent={() => <SortByAlphaIcon className={styles.alphaaicon} />}
+                className={styles.tableHeader}
+              >
+                Date
+              </TableSortLabel>
+            </TableCell>
+            <TableCell>
+              <TableSortLabel
+                active={orderBy === 'outcome'}
+                direction={orderBy === 'outcome' ? order : undefined}
+                onClick={() => handleSortRequest('outcome')}
+                IconComponent={() => <SortByAlphaIcon className={styles.alphaaicon} />}
+                className={styles.tableHeader}
+              >
+                Outcome
+              </TableSortLabel>
+            </TableCell>
+
+        
+     
+        
+
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {sortedRows.map((row) => (
+            <TableRow
+              key={row.id}
+              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+            >
+                 <TableCell component="th" scope="row" className={styles.table}>
+                {row.id}
+              </TableCell>
+              <TableCell className={styles.table}>{row.incident}</TableCell>
+              <TableCell className={styles.table}>{row.vehinum}</TableCell>
+              <TableCell className={styles.table}>{row.date.toLocaleDateString("en-US", { year: 'numeric', month: 'short', day: 'numeric' })}</TableCell>
+
+              <TableCell className={styles.table}>{row.outcome}</TableCell>
+           
+      
+                
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </TableContainer>
+  );
+}
+

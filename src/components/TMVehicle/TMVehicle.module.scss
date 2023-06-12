@@ -300,6 +300,13 @@
 
 .textboxtitle{
   padding-left: 15px !important;
+  width: 100%;
+
+  .calendarButtonicon{
+    color: $white !important;
+    width: 100% !important;
+    
+  }
 }
 
 .textboxinput{
@@ -317,9 +324,7 @@
   padding-left: 15px !important;
 }
 
-.calendarButtonicon{
-  color: $white !important;
-}
+
 
 .recIncident{
   padding-left: 30px;
